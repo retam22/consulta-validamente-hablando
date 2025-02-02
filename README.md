@@ -85,7 +85,7 @@
 
     <!-- Hero Section -->
     <div class="hero-section">
-        <img src="ruta/a/tu/logo.png" alt="Logo Consulta Válidamente Hablando" class="logo">
+        <img src="C:\Users\victo\Downloads\logo.png" alt="Logo Consulta Válidamente Hablando" class="logo">
         <h1>Consulta Válidamente Hablando</h1>
     </div>
 
