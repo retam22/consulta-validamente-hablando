@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de la Página - Consulta Válidamente Hablando</title>
+    <title>Primera Evaluación Gratuita</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Importamos las mismas tipografías -->
@@ -63,20 +63,21 @@
             text-align: left;
         }
 
-        /* Botón de regreso */
-        .back-button {
+        /* Botón de envío */
+        .submit-button {
             text-align: center;
             margin-top: 20px;
         }
-        .back-button a {
+        .submit-button button {
             background-color: #4D4038;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
         }
-        .back-button a:hover {
+        .submit-button button:hover {
             background: #A07D5A;
         }
 
@@ -92,7 +93,7 @@
 
     <!-- Frase destacada -->
     <div class="top-banner">
-        Bienvenido/a a nuestra página
+        Completa la evaluación inicial para recibir orientación gratuita.
     </div>
 
     <!-- Menú de navegación -->
@@ -112,21 +113,71 @@
 
     <!-- Sección Principal -->
     <div class="hero-section">
-        <h1>Título de la Página</h1>
-        <p>Subtítulo o descripción breve de la página.</p>
+        <h1>Primera Evaluación Gratuita</h1>
+        <p>Selecciona tu motivo de consulta para acceder al formulario adecuado.</p>
     </div>
 
-    <!-- Sección de Contenido (Aquí va el contenido específico de cada página) -->
+    <!-- Sección de Selección de Problema -->
     <section class="content-section">
-        <h2>Encabezado Principal</h2>
-        <p>Aquí va el contenido único de la página.</p>
+        <form id="evaluacionForm">
+            <label><input type="checkbox" name="problema" value="ansiedad"> Ansiedad</label><br>
+            <label><input type="checkbox" name="problema" value="depresion"> Depresión</label><br>
+            <label><input type="checkbox" name="problema" value="estres"> Estrés</label><br>
+            <label><input type="checkbox" name="problema" value="fobias"> Fobias</label><br>
+            <label><input type="checkbox" name="problema" value="alimentacion"> Problemas de Conducta Alimentaria</label><br>
+
+            <div class="submit-button">
+                <button type="button" onclick="redirigirFormulario()">Continuar</button>
+            </div>
+        </form>
     </section>
 
-    <!-- Botón de regreso -->
-    <div class="back-button">
-        <a href="index.html">Volver al Inicio</a>
-    </div>
+    <script>
+        function redirigirFormulario() {
+            var checkboxes = document.querySelectorAll('input[name="problema"]:checked');
+            var seleccionados = [];
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            checkboxes.forEach((checkbox) => {
+                seleccionados.push(checkbox.value);
+            });
+
+            if (seleccionados.length === 0) {
+                alert("Por favor, selecciona al menos una opción.");
+                return;
+            }
+
+            // Definimos los enlaces reales de los formularios
+            var destino = {
+                "ansiedad": "https://forms.gle/formularioMixtoAnsiedadDepresion",
+                "depresion": "https://forms.gle/formularioMixtoAnsiedadDepresion",
+                "estres": "https://forms.gle/formularioEstres",
+                "fobias": "https://forms.gle/formularioFobias",
+                "alimentacion": "https://forms.gle/formularioAlimentacion",
+                "general": "https://forms.gle/formularioGeneral"
+            };
+
+            // Si selecciona solo ansiedad o solo depresión → Ir al formulario mixto
+            if (seleccionados.length === 1 && (seleccionados.includes("ansiedad") || seleccionados.includes("depresion"))) {
+                window.location.href = destino["ansiedad"];
+                return;
+            }
+
+            // Si selecciona ansiedad y depresión juntas → Ir al formulario mixto
+            if (seleccionados.includes("ansiedad") && seleccionados.includes("depresion")) {
+                window.location.href = destino["ansiedad"];
+                return;
+            }
+
+            // Si selecciona solo una opción diferente a ansiedad/depresión → Redirigir a su formulario individual
+            if (seleccionados.length === 1) {
+                window.location.href = destino[seleccionados[0]];
+                return;
+            }
+
+            // Si selecciona múltiples opciones → Redirigir al formulario general
+            window.location.href = destino["general"];
+        }
+    </script>
+
 </body>
 </html>
