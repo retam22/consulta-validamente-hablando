@@ -5,65 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta Válidamente Hablando</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Importamos las tipografías -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
+        /* Configuración general */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f3f4f6;
             margin: 0;
             padding: 0;
         }
-        /* Frase destacada */
+
+        /* Frase destacada superior */
         .top-banner {
-            background-color: #4a90e2;
+            background-color: #4D4038; /* Marrón oscuro acorde al logo */
             color: white;
             text-align: center;
             padding: 10px 0;
             font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
         }
+
         /* Menú de navegación */
         .navbar {
-            background-color: #ffffff;
+            background-color: #F2E3C6; /* Beige claro */
+            border-bottom: 2px solid #D9C2A3; /* Borde sutil para elegancia */
             padding: 10px 0;
-            border-bottom: 1px solid #ddd;
         }
         .navbar-nav .nav-link {
-            color: #333 !important;
+            color: #4D4038 !important;
             font-weight: 500;
             padding: 10px 15px;
+            font-family: 'Poppins', sans-serif;
         }
         .navbar-nav .nav-link:hover {
-            color: #4a90e2 !important;
+            color: #A07D5A !important;
         }
-        /* Logo y nombre centrados */
-        .logo-section {
+
+        /* Hero Section con fondo crema para el logo */
+        .hero-section {
+            background-color: #F2E3C6; /* Color crema */
             text-align: center;
-            padding: 20px 0;
+            padding: 80px 20px;
+            position: relative;
         }
-        .logo-section img {
+
+        /* Fondo decorativo con ondas */
+        .hero-section::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100px;
+            background: url('https://raw.githubusercontent.com/maherber/svgs/main/wave-haikei.svg') no-repeat bottom center;
+            background-size: cover;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        /* Estilo del logo */
+        .logo {
             width: 150px;
             height: auto;
+            margin-bottom: 10px;
         }
-        .logo-section h1 {
-            font-size: 24px;
-            margin-top: 10px;
-            color: #333;
+
+        /* Estilo del título */
+        .title-split {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            color: #4D4038;
+            line-height: 1.2;
+            font-family: 'Poppins', sans-serif;
         }
-        /* Botón de evaluación gratuita */
+        .title-split span {
+            display: block;
+            font-size: 35px;
+            color: #A07D5A; /* Un tono más cálido para la segunda línea */
+        }
+
+        /* Botón de Evaluación Gratuita */
         .evaluation-button {
             text-align: center;
-            margin: 20px 0;
+            margin-top: 20px;
         }
         .evaluation-button a {
-            background-color: #4a90e2;
+            background-color: #4D4038;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-size: 18px;
-            border-radius: 5px;
+            border-radius: 8px;
             text-decoration: none;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
         }
         .evaluation-button a:hover {
-            background-color: #357ABD;
-            color: white;
+            background-color: #736357; /* Tono más suave al pasar el cursor */
+        }
+
+        /* Adaptaciones para móviles */
+        @media (max-width: 768px) {
+            .title-split {
+                font-size: 30px;
+            }
+            .title-split span {
+                font-size: 26px;
+            }
+            .hero-section {
+                padding: 60px 15px;
+            }
         }
     </style>
 </head>
@@ -77,44 +131,31 @@
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#registro">Registro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#faq">Preguntas Frecuentes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registro">Registro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">Preguntas Frecuentes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Logo y nombre centrados -->
-    <div class="logo-section">
-        <img src="logo.png" alt="Logo Consulta Válidamente Hablando">
-        <h1>Consulta Válidamente Hablando</h1>
+    <!-- Sección Principal con Fondo Crema -->
+    <div class="hero-section">
+        <img src="logo.png" alt="Logo Consulta Válidamente Hablando" class="logo">
+        <h1 class="title-split">Consulta <br> <span>Válidamente Hablando</span></h1>
     </div>
 
-    <!-- Botón de evaluación gratuita -->
+    <!-- Botón de Evaluación Gratuita -->
     <div class="evaluation-button">
         <a href="https://forms.gle/tu-formulario" target="_blank">Primera Evaluación Gratuita</a>
     </div>
-
-    <!-- Resto del contenido de la página -->
-    <!-- ... -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
