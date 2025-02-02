@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,6 +26,7 @@
             text-align: center;
             font-size: 24px;
             font-weight: bold;
+            flex-direction: column;
         }
         .container {
             max-width: 900px;
@@ -58,6 +58,10 @@
         .blog-card .content {
             padding: 15px;
         }
+        .logo {
+            width: 100px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -81,6 +85,7 @@
 
     <!-- Hero Section -->
     <div class="hero-section">
+        <img src="ruta/a/tu/logo.png" alt="Logo Consulta Válidamente Hablando" class="logo">
         <h1>Consulta Válidamente Hablando</h1>
     </div>
 
@@ -94,7 +99,6 @@
     <!-- Blog Section -->
     <div class="container" id="blog">
         <h2 class="mb-4 text-center">Blog de Psicología</h2>
-
         <div class="row">
             <div class="col-md-6">
                 <div class="blog-card">
