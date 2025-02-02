@@ -9,7 +9,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f3f4f6;
-            padding-top: 80px; /* Asegura espacio para la barra de navegación fija */
+            padding-top: 80px;
         }
         .navbar {
             background-color: #4a90e2;
@@ -23,18 +23,21 @@
         .navbar-brand, .nav-link {
             color: white !important;
         }
+        /* Sección principal sin fondo blanco */
         .hero-section {
-            background: url('https://source.unsplash.com/1600x900/?therapy,mental-health') center/cover no-repeat;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
             text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            flex-direction: column;
-            padding-top: 50px;
+            padding: 50px 20px;
+            color: white;
+            background-color: #4a90e2; /* Fondo azul (lo podemos modificar luego) */
+        }
+        .hero-section h1 {
+            font-size: 28px;
+            margin-top: 20px;
+        }
+        .hero-section .btn-primary {
+            margin-top: 15px;
+            font-size: 18px;
+            padding: 12px 20px;
         }
         .container {
             max-width: 900px;
@@ -45,11 +48,11 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         .btn-primary {
-            background-color: #4a90e2;
+            background-color: #357ABD;
             border: none;
         }
         .btn-primary:hover {
-            background-color: #357ABD;
+            background-color: #2d6cb8;
         }
         .blog-card {
             border-radius: 8px;
@@ -68,18 +71,17 @@
         }
         /* Ajuste del logo */
         .logo {
-            width: 500px; /* Tamaño en PC */
-            max-width: 100%; /* Evita que desborde en pantallas pequeñas */
+            width: 500px;
+            max-width: 100%;
             height: auto;
             margin-bottom: 20px;
         }
         @media (max-width: 768px) {
             .logo {
-                width: 80%; /* Se adapta en móviles */
+                width: 80%;
             }
-            .hero-section {
-                padding-top: 80px;
-                min-height: auto;
+            .hero-section h1 {
+                font-size: 22px;
             }
         }
     </style>
@@ -103,10 +105,11 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Nueva Sección Hero con Mensaje Motivador y Botón -->
     <div class="hero-section">
         <img src="logo.png" alt="Logo Consulta Válidamente Hablando" class="logo">
-        <h1>Consulta Válidamente Hablando</h1>
+        <h1>Tu bienestar emocional es lo más importante. Demos juntos el primer paso.</h1>
+        <a href="https://forms.gle/tu-formulario" class="btn btn-primary btn-lg">Realizar Evaluación Gratis</a>
     </div>
 
     <!-- Formulario de Registro -->
