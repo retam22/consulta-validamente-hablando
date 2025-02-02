@@ -15,7 +15,7 @@
             background-color: #f3f4f6;
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth; /* Hace que el desplazamiento sea suave */
+            scroll-behavior: smooth;
         }
 
         /* Frase destacada superior */
@@ -101,34 +101,14 @@
             margin-top: 30px;
         }
 
-        /* Testimonios */
-        .testimonial {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Preguntas Frecuentes */
-        .faq-item {
-            max-width: 700px;
-            margin: 10px auto;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Últimos Artículos del Blog */
-        .blog-preview {
+        /* FAQ Destacadas */
+        .faq-preview {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
         }
-        .blog-card {
+        .faq-item {
             width: 300px;
             background: #f9f9f9;
             padding: 15px;
@@ -136,21 +116,27 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
         }
-        .blog-card h3 {
-            font-size: 20px;
+        .faq-item h3 {
+            font-size: 18px;
             color: #4D4038;
         }
-        .blog-card p {
+        .faq-item p {
             font-size: 14px;
             color: #666;
         }
-        .blog-card a {
+        .faq-button {
+            margin-top: 20px;
+        }
+        .faq-button a {
+            background-color: #4D4038;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
             text-decoration: none;
-            color: #4D4038;
             font-weight: bold;
         }
-        .blog-card a:hover {
-            color: #A07D5A;
+        .faq-button a:hover {
+            background: #A07D5A;
         }
 
         /* Adaptaciones para móviles */
@@ -174,18 +160,15 @@
         A veces, el primer paso es permitirnos ser escuchados. Aquí tienes un espacio para ello.
     </div>
 
-    <!-- Menú de navegación con enlaces a secciones -->
+    <!-- Menú de navegación con enlaces a las páginas -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq">Preguntas Frecuentes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -202,24 +185,21 @@
         <a href="https://forms.gle/tu-formulario" target="_blank">Primera Evaluación Gratuita</a>
     </div>
 
-    <!-- Sección de Preguntas Frecuentes -->
-    <section id="faq">
+    <!-- Preguntas Frecuentes Destacadas -->
+    <section id="faq-preview">
         <h2>Preguntas Frecuentes</h2>
-        <div class="faq-item">
-            <h3>¿Cómo funciona la terapia en línea?</h3>
-            <p>La terapia en línea se realiza a través de videollamadas en una plataforma segura...</p>
-        </div>
-    </section>
-
-    <!-- Últimos artículos del blog -->
-    <section id="blog-preview">
-        <h2>Últimos Artículos</h2>
-        <div class="blog-preview">
-            <div class="blog-card">
-                <h3>Título del Artículo</h3>
-                <p>Resumen del artículo...</p>
-                <a href="blog.html">Leer más</a>
+        <div class="faq-preview">
+            <div class="faq-item">
+                <h3>¿Cómo funciona la terapia en línea?</h3>
+                <p>La terapia en línea se realiza a través de videollamadas en una plataforma segura...</p>
             </div>
+            <div class="faq-item">
+                <h3>¿Cuánto dura cada sesión?</h3>
+                <p>Las sesiones tienen una duración aproximada de 50 minutos...</p>
+            </div>
+        </div>
+        <div class="faq-button">
+            <a href="faq.html">Ver más preguntas</a>
         </div>
     </section>
 
