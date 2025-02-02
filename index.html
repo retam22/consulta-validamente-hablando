@@ -133,23 +133,37 @@
             color: #A07D5A;
         }
 
-        /* Valoraciones */
-        .rating-stars {
-            color: #FFD700;
-            font-size: 20px;
-        }
-        .valoraciones-section {
-            text-align: center;
-            padding: 50px 20px;
-            background: #F2E3C6;
-        }
-        .valoracion {
+        /* FAQ en la página de inicio */
+        .faq-summary {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
             background: white;
-            padding: 15px;
-            margin: 10px auto;
-            max-width: 600px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .faq-summary h3 {
+            font-size: 20px;
+            color: #4D4038;
+        }
+        .faq-summary p {
+            font-size: 14px;
+            color: #666;
+        }
+        .faq-button {
+            margin-top: 20px;
+        }
+        .faq-button a {
+            background-color: #4D4038;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .faq-button a:hover {
+            background: #A07D5A;
         }
 
         /* Adaptaciones para móviles */
@@ -173,7 +187,7 @@
         A veces, el primer paso es permitirnos ser escuchados. Aquí tienes un espacio para ello.
     </div>
 
-    <!-- Menú de navegación con enlaces a las páginas -->
+    <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -181,7 +195,6 @@
                     <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#valoraciones">Valoraciones</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                 </ul>
             </div>
@@ -196,7 +209,7 @@
 
     <!-- Botón de Evaluación Gratuita -->
     <div class="evaluation-button">
-        <a href="https://forms.gle/tu-formulario" target="_blank">Primera Evaluación Gratuita</a>
+        <a href="evaluacion.html">Primera Evaluación Gratuita</a>
     </div>
 
     <!-- Últimos Artículos del Blog -->
@@ -211,15 +224,15 @@
         </div>
     </section>
 
-    <!-- Sección de Valoraciones -->
-    <section id="valoraciones" class="valoraciones-section">
-        <h2>Valoraciones</h2>
-        <p class="rating-stars">⭐⭐⭐⭐☆ (4.5/5)</p>
-        <div class="valoracion">
-            <p>"Excelente experiencia, muy profesional." - Usuario</p>
+    <!-- Preguntas Frecuentes en la Página de Inicio -->
+    <section id="faq-summary">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-summary">
+            <h3>¿Cómo funciona la terapia en línea?</h3>
+            <p>La terapia en línea se realiza a través de videollamadas en una plataforma segura...</p>
         </div>
-        <div class="evaluation-button">
-            <a href="agregar-valoracion.html">Añadir mi valoración</a>
+        <div class="faq-button">
+            <a href="faq.html">Ver más preguntas</a>
         </div>
     </section>
 
