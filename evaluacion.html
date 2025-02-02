@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primera Evaluación Gratuita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Importamos las mismas tipografías -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Frase destacada superior */
+        .top-banner {
+            background-color: #4D4038;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        /* Menú de navegación */
+        .navbar {
+            background-color: #F2E3C6;
+            border-bottom: 2px solid #D9C2A3;
+            padding: 10px 0;
+        }
+        .navbar-nav .nav-link {
+            color: #4D4038 !important;
+            font-weight: 500;
+            padding: 10px 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #A07D5A !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-color: #F2E3C6;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        /* Sección de contenido */
+        .content-section {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        /* Botón de envío */
+        .submit-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .submit-button button {
+            background-color: #4D4038;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-button button:hover {
+            background: #A07D5A;
+        }
+
+        /* Adaptaciones para móviles */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Frase destacada -->
+    <div class="top-banner">
+        Completa la evaluación inicial para recibir orientación gratuita.
+    </div>
+
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Principal -->
+    <div class="hero-section">
+        <h1>Primera Evaluación Gratuita</h1>
+        <p>Selecciona tu motivo de consulta para acceder al formulario adecuado.</p>
+    </div>
+
+    <!-- Sección de Selección de Problema -->
+    <section class="content-section">
+        <form id="evaluacionForm">
+            <label><input type="checkbox" name="problema" value="ansiedad"> Ansiedad</label><br>
+            <label><input type="checkbox" name="problema" value="depresion"> Depresión</label><br>
+            <label><input type="checkbox" name="problema" value="estres"> Estrés</label><br>
+            <label><input type="checkbox" name="problema" value="fobias"> Fobias</label><br>
+            <label><input type="checkbox" name="problema" value="alimentacion"> Problemas de Conducta Alimentaria</label><br>
+
+            <div class="submit-button">
+                <button type="button" onclick="redirigirFormulario()">Continuar</button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        function redirigirFormulario() {
+            var checkboxes = document.querySelectorAll('input[name="problema"]:checked');
+            var seleccionados = [];
+
+            checkboxes.forEach((checkbox) => {
+                seleccionados.push(checkbox.value);
+            });
+
+            if (seleccionados.length === 0) {
+                alert("Por favor, selecciona al menos una opción.");
+                return;
+            }
+
+            // Definimos los enlaces reales de los formularios
+            var destino = {
+                "ansiedad": "https://forms.gle/formularioMixtoAnsiedadDepresion",
+                "depresion": "https://forms.gle/formularioMixtoAnsiedadDepresion",
+                "estres": "https://forms.gle/formularioEstres",
+                "fobias": "https://forms.gle/formularioFobias",
+                "alimentacion": "https://forms.gle/formularioAlimentacion",
+                "general": "https://forms.gle/formularioGeneral"
+            };
+
+            // Si selecciona solo ansiedad o solo depresión → Ir al formulario mixto
+            if (seleccionados.length === 1 && (seleccionados.includes("ansiedad") || seleccionados.includes("depresion"))) {
+                window.location.href = destino["ansiedad"];
+                return;
+            }
+
+            // Si selecciona ansiedad y depresión juntas → Ir al formulario mixto
+            if (seleccionados.includes("ansiedad") && seleccionados.includes("depresion")) {
+                window.location.href = destino["ansiedad"];
+                return;
+            }
+
+            // Si selecciona solo una opción diferente a ansiedad/depresión → Redirigir a su formulario individual
+            if (seleccionados.length === 1) {
+                window.location.href = destino[seleccionados[0]];
+                return;
+            }
+
+            // Si selecciona múltiples opciones → Redirigir al formulario general
+            window.location.href = destino["general"];
+        }
+    </script>
+
+</body>
+</html>
