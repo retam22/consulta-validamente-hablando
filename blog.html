@@ -65,12 +65,12 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .blog-card img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
         }
 
@@ -78,15 +78,15 @@
             padding: 20px;
         }
 
-        .blog-card-content h3 {
-            font-size: 24px;
-            color: #4D4038;
+        .blog-card-content h2 {
+            font-size: 26px;
+            color: #A07D5A;
             margin-bottom: 10px;
         }
 
         .blog-card-content p {
-            font-size: 16px;
-            color: #666;
+            font-size: 18px;
+            color: #4D4038;
         }
 
     </style>
@@ -119,7 +119,7 @@
 
     <!-- Script para cargar artículos desde Google Sheets -->
     <script>
-        const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRwvgQTO_aZJk15ZcVBPzO7Y0aoLkp1UByvx0MIRJE4qTcfQVmQ-LQ8Vhq0RL0lNLs_C4PKTF0Pmk6i/pub?output=csv";
+        const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTuhA62w-opqI-cSwGMmT2sbduq57pAVrrWuzzHrVSY8d1rT0qatemxonx2yWIbVuAVyFBLwDCSW3mc/pub?output=csv";
 
         function loadBlog() {
             fetch(SHEET_URL)
@@ -130,15 +130,15 @@
 
                     rows.forEach(row => {
                         let columns = row.split(",");
-                        let title = columns[0];
-                        let content = columns[1];
-                        let imageUrl = columns[2];
+                        let title = columns[0];       // Columna de título
+                        let content = columns[1];     // Columna de contenido (HTML)
+                        let imageUrl = columns[2];    // Columna de imagen
 
                         container.innerHTML += `
                             <div class="blog-card">
                                 <img src="${imageUrl}" alt="Imagen del artículo">
                                 <div class="blog-card-content">
-                                    <h3>${title}</h3>
+                                    <h2>${title}</h2>
                                     <div>${content}</div>
                                 </div>
                             </div>
@@ -146,6 +146,7 @@
                     });
                 });
         }
+
         loadBlog();
     </script>
 
