@@ -6,7 +6,7 @@
     <title>Evaluación Inicial - Síntomas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Importamos las mismas tipografías -->
+    <!-- Tipografía -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -149,9 +149,17 @@
             <label class="sintoma-item"><input type="checkbox" value="placer"> Tengo dificultades para disfrutar cosas que antes me gustaban.</label>
             <label class="sintoma-item"><input type="checkbox" value="actividades"> Me cuesta iniciar o sostener actividades diarias.</label>
             <label class="sintoma-item"><input type="checkbox" value="impulsos"> Tengo dificultades para controlar mis impulsos o emociones intensas.</label>
+            <label class="sintoma-item"><input type="checkbox" value="reacciones"> A veces reacciono de manera extrema y no sé por qué.</label>
             <label class="sintoma-item"><input type="checkbox" value="estres"> Siento que siempre estoy bajo presión o sobrecargado/a.</label>
+            <label class="sintoma-item"><input type="checkbox" value="trabajo"> Tengo dificultades para desconectarme del trabajo o de mis preocupaciones.</label>
             <label class="sintoma-item"><input type="checkbox" value="sueño"> Me cuesta dormir o relajarme debido a la tensión acumulada.</label>
+            <label class="sintoma-item"><input type="checkbox" value="alimentacion"> Me cuesta regular mi alimentación en función de mis emociones.</label>
+            <label class="sintoma-item"><input type="checkbox" value="comer"> He tenido episodios donde siento que no puedo controlar lo que como.</label>
             <label class="sintoma-item"><input type="checkbox" value="imagen"> Me preocupa en exceso mi peso o mi imagen corporal.</label>
+            <label class="sintoma-item"><input type="checkbox" value="miedos"> Hay situaciones específicas que evito porque me generan mucho miedo.</label>
+            <label class="sintoma-item"><input type="checkbox" value="limitado"> Mis miedos han limitado mi vida en algunas áreas.</label>
+            <label class="sintoma-item"><input type="checkbox" value="enfrentar"> No sé cómo enfrentar ciertos temores sin sentirme desbordado/a.</label>
+            <label class="sintoma-item"><input type="checkbox" value="procrastinar"> Procrastino mucho y me cuesta mantener mis compromisos.</label>
             <label class="sintoma-item"><input type="checkbox" value="cambios"> Intento hacer cambios, pero me cuesta sostenerlos en el tiempo.</label>
             <label class="sintoma-item"><input type="checkbox" value="desmotivo"> Siento que me desmotivo fácilmente.</label>
         </div>
@@ -166,27 +174,6 @@
     <div class="submit-button">
         <button onclick="redirigirFormulario()">Continuar</button>
     </div>
-
-    <script>
-        function redirigirFormulario() {
-            var seleccionados = document.querySelectorAll('.sintoma-item input:checked');
-            var correo = document.getElementById("correo").value.trim();
-
-            if (seleccionados.length === 0) {
-                alert("Por favor, selecciona al menos un síntoma.");
-                return;
-            }
-
-            if (correo === "") {
-                alert("Por favor, ingresa tu correo.");
-                return;
-            }
-
-            // Aquí puedes enviar el correo a una hoja de Google Sheets
-            // window.location.href = "https://forms.gle/formularioGeneral";
-            alert("Tu correo ha sido registrado. Ahora serás redirigido.");
-        }
-    </script>
 
 </body>
 </html>
