@@ -23,16 +23,18 @@
             background-color: #4D4038;
             color: white;
             text-align: center;
-            padding: 8px 10px;
-            font-size: 16px;
+            padding: 12px;
+            font-size: 14px;
             font-weight: 400;
+            margin: 0 20px;
+            border-radius: 0 0 8px 8px;
         }
 
         /* Hero Section reducido */
         .hero-section {
             background-color: #F2E3C6;
             text-align: center;
-            padding: 15px 20px;
+            padding: 10px 20px;
         }
 
         /* Contenedor de síntomas */
@@ -48,28 +50,29 @@
         .sintomas-container h2 {
             text-align: center;
             color: #4D4038;
-            margin-bottom: 12px;
-            font-size: 18px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: normal;
         }
 
         /* Lista de síntomas */
         .sintomas-lista {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            gap: 6px;
             padding: 15px;
         }
 
         .sintoma-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 6px;
+            gap: 8px;
+            padding: 5px;
             border-radius: 6px;
             background: #f8f8f8;
             cursor: pointer;
             transition: background 0.2s;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .sintoma-item:hover {
@@ -77,21 +80,21 @@
         }
 
         .sintoma-item input {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
         }
 
         /* Campo de correo */
         .correo-container {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .correo-container input {
             width: 80%;
             max-width: 400px;
-            padding: 10px;
-            font-size: 14px;
+            padding: 8px;
+            font-size: 12px;
             border-radius: 6px;
             border: 1px solid #ccc;
             text-align: center;
@@ -100,14 +103,14 @@
         /* Botón de continuar */
         .submit-button {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .submit-button button {
             background-color: #4D4038;
             color: white;
-            padding: 10px 20px;
-            font-size: 14px;
+            padding: 8px 20px;
+            font-size: 12px;
             border-radius: 6px;
             border: none;
             cursor: pointer;
@@ -128,19 +131,18 @@
 </head>
 <body>
 
-    <!-- Frase destacada con espacio optimizado -->
+    <!-- Frase destacada con márgenes optimizados -->
     <div class="top-banner">
-        ✅ Primera evaluación gratuita. Selecciona los síntomas y deja tu correo.
+        Primera evaluación gratuita de 30 minutos para ingreso.
     </div>
 
     <!-- Sección Principal -->
     <div class="hero-section">
-        <h1 style="font-size: 22px;">Evaluación Inicial</h1>
+        <h2>Selecciona los síntomas que experimentas:</h2>
     </div>
 
     <!-- Lista de síntomas -->
     <section class="sintomas-container">
-        <h2>Selecciona los síntomas que experimentas:</h2>
         <div class="sintomas-lista">
             <label class="sintoma-item"><input type="checkbox" value="ansiedad"> Siento que mi ansiedad interfiere con mi vida diaria.</label>
             <label class="sintoma-item"><input type="checkbox" value="pensamientos"> Me cuesta manejar pensamientos repetitivos o preocupaciones constantes.</label>
@@ -150,6 +152,7 @@
             <label class="sintoma-item"><input type="checkbox" value="actividades"> Me cuesta iniciar o sostener actividades diarias.</label>
             <label class="sintoma-item"><input type="checkbox" value="impulsos"> Tengo dificultades para controlar mis impulsos o emociones intensas.</label>
             <label class="sintoma-item"><input type="checkbox" value="reacciones"> A veces reacciono de manera extrema y no sé por qué.</label>
+            <label class="sintoma-item"><input type="checkbox" value="controlar"> Me cuesta regular mi comportamiento en momentos de estrés.</label>
             <label class="sintoma-item"><input type="checkbox" value="estres"> Siento que siempre estoy bajo presión o sobrecargado/a.</label>
             <label class="sintoma-item"><input type="checkbox" value="trabajo"> Tengo dificultades para desconectarme del trabajo o de mis preocupaciones.</label>
             <label class="sintoma-item"><input type="checkbox" value="sueño"> Me cuesta dormir o relajarme debido a la tensión acumulada.</label>
