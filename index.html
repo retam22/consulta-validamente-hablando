@@ -153,7 +153,7 @@
             background: #A07D5A;
         }
 
-        /* FAQ en la página de inicio */
+        /* FAQ */
         .faq-summary {
             max-width: 700px;
             margin: 0 auto;
@@ -186,18 +186,6 @@
             background: #A07D5A;
         }
 
-        /* Adaptaciones para móviles */
-        @media (max-width: 768px) {
-            .title-split {
-                font-size: 30px;
-            }
-            .title-split span {
-                font-size: 26px;
-            }
-            .hero-section {
-                padding: 60px 15px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -230,5 +218,18 @@
         <h1 class="title-split">Consulta <br> <span>Válidamente Hablando</span></h1>
     </div>
 
-    <!-- Resto del contenido (Blog y FAQ) sigue igual -->
-    
+    <!-- Secciones de Blog y FAQ -->
+    <section id="blog-preview">
+        <h2>Últimos Artículos</h2>
+        <div class="blog-preview">
+            <div class="blog-card">
+                <h3>Título del Artículo</h3>
+                <p>Resumen del artículo...</p>
+                <a href="blog.html">Leer más</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
