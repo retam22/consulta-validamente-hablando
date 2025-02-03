@@ -50,42 +50,54 @@
             padding: 50px 20px;
         }
 
-        /* Sección de síntomas */
+        /* Contenedor de síntomas */
         .sintomas-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sintomas-container h2 {
+            text-align: center;
+            color: #4D4038;
+            margin-bottom: 20px;
+        }
+
+        /* Lista de síntomas */
+        .sintomas-lista {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
             padding: 20px;
         }
 
-        .sintoma-card {
-            width: 300px;
-            background: white;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .sintoma-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f8f8f8;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid transparent;
-            font-size: 16px;
+            transition: background 0.2s;
         }
 
-        .sintoma-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        .sintoma-item:hover {
+            background: #E8D9C1;
         }
 
-        .sintoma-card.selected {
-            border-color: #4D4038;
-            background-color: #F2E3C6;
+        .sintoma-item input {
+            width: 18px;
+            height: 18px;
         }
 
         /* Botón de continuar */
         .submit-button {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .submit-button button {
@@ -105,8 +117,8 @@
 
         /* Adaptaciones para móviles */
         @media (max-width: 768px) {
-            .sintoma-card {
-                width: 90%;
+            .sintomas-lista {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -139,13 +151,23 @@
         <p>Marca los síntomas con los que te sientas identificado/a.</p>
     </div>
 
-    <!-- Tarjetas Interactivas -->
+    <!-- Lista de síntomas -->
     <section class="sintomas-container">
-        <div class="sintoma-card" onclick="seleccionarSintoma(this, 'ansiedad')">Siento que mi ansiedad interfiere con mi vida diaria.</div>
-        <div class="sintoma-card" onclick="seleccionarSintoma(this, 'depresion')">Me siento desmotivado/a gran parte del tiempo.</div>
-        <div class="sintoma-card" onclick="seleccionarSintoma(this, 'estres')">Siento que siempre estoy bajo presión o sobrecargado/a.</div>
-        <div class="sintoma-card" onclick="seleccionarSintoma(this, 'fobias')">Hay situaciones específicas que evito porque me generan mucho miedo.</div>
-        <div class="sintoma-card" onclick="seleccionarSintoma(this, 'alimentacion')">Me cuesta regular mi alimentación en función de mis emociones.</div>
+        <h2>Selecciona los síntomas que experimentas:</h2>
+        <div class="sintomas-lista">
+            <label class="sintoma-item"><input type="checkbox" value="ansiedad"> Siento que mi ansiedad interfiere con mi vida diaria.</label>
+            <label class="sintoma-item"><input type="checkbox" value="pensamientos"> Me cuesta manejar pensamientos repetitivos o preocupaciones constantes.</label>
+            <label class="sintoma-item"><input type="checkbox" value="evitar"> Evito ciertas situaciones por miedo o incomodidad.</label>
+            <label class="sintoma-item"><input type="checkbox" value="desmotivacion"> Me siento desmotivado/a gran parte del tiempo.</label>
+            <label class="sintoma-item"><input type="checkbox" value="placer"> Tengo dificultades para disfrutar cosas que antes me gustaban.</label>
+            <label class="sintoma-item"><input type="checkbox" value="actividades"> Me cuesta iniciar o sostener actividades diarias.</label>
+            <label class="sintoma-item"><input type="checkbox" value="impulsos"> Tengo dificultades para controlar mis impulsos o emociones intensas.</label>
+            <label class="sintoma-item"><input type="checkbox" value="reacciones"> A veces reacciono de manera extrema y no sé por qué.</label>
+            <label class="sintoma-item"><input type="checkbox" value="estres"> Siento que siempre estoy bajo presión o sobrecargado/a.</label>
+            <label class="sintoma-item"><input type="checkbox" value="trabajo"> Tengo dificultades para desconectarme del trabajo o de mis preocupaciones.</label>
+            <label class="sintoma-item"><input type="checkbox" value="sueño"> Me cuesta dormir o relajarme debido a la tensión acumulada.</label>
+            <label class="sintoma-item"><input type="checkbox" value="alimentacion"> Me cuesta regular mi alimentación en función de mis emociones.</label>
+        </div>
     </section>
 
     <!-- Botón de continuar -->
@@ -154,38 +176,13 @@
     </div>
 
     <script>
-        let seleccionados = [];
-
-        function seleccionarSintoma(elemento, sintoma) {
-            if (seleccionados.includes(sintoma)) {
-                seleccionados = seleccionados.filter(s => s !== sintoma);
-                elemento.classList.remove('selected');
-            } else {
-                seleccionados.push(sintoma);
-                elemento.classList.add('selected');
-            }
-        }
-
         function redirigirFormulario() {
+            var seleccionados = document.querySelectorAll('.sintoma-item input:checked');
             if (seleccionados.length === 0) {
                 alert("Por favor, selecciona al menos un síntoma.");
                 return;
             }
-
-            let destino = {
-                "ansiedad": "https://forms.gle/formularioAnsiedad",
-                "depresion": "https://forms.gle/formularioDepresion",
-                "estres": "https://forms.gle/formularioEstres",
-                "fobias": "https://forms.gle/formularioFobias",
-                "alimentacion": "https://forms.gle/formularioAlimentacion",
-                "general": "https://forms.gle/formularioGeneral"
-            };
-
-            if (seleccionados.length > 1) {
-                window.location.href = destino["general"];
-            } else {
-                window.location.href = destino[seleccionados[0]];
-            }
+            window.location.href = "https://forms.gle/formularioGeneral";
         }
     </script>
 
