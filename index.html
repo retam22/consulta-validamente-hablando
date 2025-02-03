@@ -45,6 +45,12 @@
             color: #A07D5A !important;
         }
 
+        /* Menú hamburguesa */
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
         /* Hero Section con fondo crema */
         .hero-section {
             background-color: #F2E3C6;
@@ -93,93 +99,6 @@
             background-color: #736357;
         }
 
-        /* Secciones */
-        section {
-            padding: 50px 20px;
-            text-align: center;
-            background: white;
-            margin-top: 30px;
-        }
-
-        /* Blog */
-        .blog-preview {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .blog-card {
-            width: 300px;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .blog-card h3 {
-            font-size: 20px;
-            color: #4D4038;
-        }
-        .blog-card p {
-            font-size: 14px;
-            color: #666;
-        }
-        .blog-card a {
-            text-decoration: none;
-            color: #4D4038;
-            font-weight: bold;
-        }
-        .blog-card a:hover {
-            color: #A07D5A;
-        }
-        .blog-button {
-            margin-top: 20px;
-        }
-        .blog-button a {
-            background-color: #4D4038;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .blog-button a:hover {
-            background: #A07D5A;
-        }
-
-        /* FAQ en la página de inicio */
-        .faq-summary {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .faq-summary h3 {
-            font-size: 20px;
-            color: #4D4038;
-        }
-        .faq-summary p {
-            font-size: 14px;
-            color: #666;
-        }
-        .faq-button {
-            margin-top: 20px;
-        }
-        .faq-button a {
-            background-color: #4D4038;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .faq-button a:hover {
-            background: #A07D5A;
-        }
-
         /* Adaptaciones para móviles */
         @media (max-width: 768px) {
             .title-split {
@@ -201,9 +120,12 @@
         A veces, el primer paso es permitirnos ser escuchados. Aquí tienes un espacio para ello.
     </div>
 
-    <!-- Menú de navegación -->
+    <!-- Menú de navegación con botón hamburguesa -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
@@ -226,33 +148,8 @@
         <a href="evaluacion.html">Primera Evaluación Gratuita</a>
     </div>
 
-    <!-- Últimos Artículos del Blog -->
-    <section id="blog-preview">
-        <h2>Últimos Artículos</h2>
-        <div class="blog-preview">
-            <div class="blog-card">
-                <h3>Título del Artículo</h3>
-                <p>Resumen del artículo...</p>
-                <a href="blog.html">Leer más</a>
-            </div>
-        </div>
-        <div class="blog-button">
-            <a href="blog.html">Ver todos los artículos</a>
-        </div>
-    </section>
-
-    <!-- Preguntas Frecuentes en la Página de Inicio -->
-    <section id="faq-summary">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-summary">
-            <h3>¿Cómo funciona la terapia en línea?</h3>
-            <p>La terapia en línea se realiza a través de videollamadas en una plataforma segura...</p>
-        </div>
-        <div class="faq-button">
-            <a href="faq.html">Ver más preguntas</a>
-        </div>
-    </section>
-
+    <!-- Scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
