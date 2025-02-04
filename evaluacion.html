@@ -200,6 +200,8 @@
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (correo.match(regexCorreo)) {
+            console.log("Correo válido:", correo);
+            
             // Guardar en Google Sheets
             fetch(urlGoogleScript, {
                 method: "POST",
@@ -208,18 +210,23 @@
             })
             .then(response => response.text())
             .then(data => {
-                console.log("Respuesta del servidor:", data); // Para verificar si el script responde
-                window.location.href = urlCalendly;
+                console.log("Respuesta del servidor:", data); // Verifica si el script responde correctamente
+                if (data.includes("OK")) {
+                    window.location.href = urlCalendly;
+                } else {
+                    alert("Hubo un error al guardar tu correo. Inténtalo nuevamente.");
+                }
             })
             .catch(error => {
                 console.error("Error al enviar los datos:", error);
-                alert("Hubo un error al guardar tu correo. Inténtalo nuevamente.");
+                alert("Error al enviar los datos. Inténtalo nuevamente.");
             });
         } else {
             alert("Por favor, ingresa un correo electrónico válido antes de continuar.");
         }
     }
 </script>
+
 
 
 </body>
