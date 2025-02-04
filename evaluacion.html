@@ -193,8 +193,9 @@
    <script>
     function redirigirFormulario() {
         let correo = document.getElementById("correo").value;
-         let urlCalendly = "https://calendly.com/validamentehablando/30min";
-        
+        let urlCalendly = "https://calendly.com/validamentehablando/30min";
+        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbxNvZXB6dJtmmwa13sk_XQqapV8dY4xesi7LLH-VNNESQ8jOLvYJeyabo0cGGXkB4jYtA/exec"; // Nueva URL del script
+
         // Expresión regular para validar correos
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -225,8 +226,6 @@
         }
     }
 </script>
-
-
-
+    
 </body>
 </html>
