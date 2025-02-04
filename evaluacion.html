@@ -194,7 +194,7 @@
     function redirigirFormulario() {
         let correo = document.getElementById("correo").value;
         let urlCalendly = "https://calendly.com/validamentehablando/30min";
-        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbyr7HGA9FW0Z2L-fRDlMIou9EQGs2gKShW1hrGyyeuMGkSQINfbj2FeXFgVQnS0PSJx/exec"; // Reemplaza con la nueva URL
+        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbyvkAtlrMq4SbtLxCRXjInHTr0kmx9CTVntbh5VgQ-2AcOpQdsDiajVdWKD___UMcw1/exec"; // Reemplaza con tu nueva URL
 
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -205,10 +205,11 @@
 
         console.log("✅ Enviando correo:", correo);
         
+        // Enviar a Google Sheets usando form-urlencoded
         fetch(urlGoogleScript, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ correo: correo })
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "correo=" + encodeURIComponent(correo)
         })
         .then(response => response.text())
         .then(data => {
@@ -228,8 +229,5 @@
     }
 </script>
 
-
-
-    
 </body>
 </html>
