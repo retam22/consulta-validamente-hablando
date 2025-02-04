@@ -190,11 +190,11 @@
         <button onclick="redirigirFormulario()">Continuar</button>
     </div>
 
-    <script>
+   <script>
     function redirigirFormulario() {
         let correo = document.getElementById("correo").value;
         let urlCalendly = "https://calendly.com/validamentehablando/30min";
-        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbzg_BVeWi1XtyjtTK9othQGyhM7-bZSgEwlI-zZuM3iX6z-dOnFEkhKrhytlyjXwXipcg/exec"; // Reemplaza con la nueva URL
+        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbxYqK1OjyT0aVUT_iLNsS6Q7beQ83Ho7Nckj1Qu-mG8U2xQRKz-l7__auAv3P5IeVz8bw/exec"; // Nueva URL del script
 
         // Expresión regular para validar correos
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -210,7 +210,7 @@
             })
             .then(response => response.text())
             .then(data => {
-                console.log("Respuesta del servidor:", data); // Verifica si el script responde correctamente
+                console.log("Respuesta del servidor:", data);
                 if (data.includes("OK")) {
                     window.location.href = urlCalendly;
                 } else {
