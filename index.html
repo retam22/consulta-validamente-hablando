@@ -29,7 +29,7 @@
             width: 100%;
         }
 
-        /* Menú */
+        /* Menú de navegación */
         .navbar {
             background-color: #F2E3C6;
             border-bottom: 2px solid #D9C2A3;
@@ -49,13 +49,18 @@
         .hero-section {
             background-color: #F2E3C6;
             text-align: center;
-            padding: 30px 20px;
+            padding: 50px 20px;
+        }
+
+        /* Imagen del logo */
+        .logo {
+            width: 180px;
+            margin-bottom: 15px;
         }
 
         .hero-section h1 {
-            font-size: 32px;
+            font-size: 36px;
             color: #4D4038;
-            font-family: 'Poppins', sans-serif;
             font-weight: 700;
         }
 
@@ -73,21 +78,102 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-family: 'Poppins', sans-serif;
         }
 
         .evaluation-button a:hover {
             background-color: #A07D5A;
         }
 
-        /* Secciones */
-        section {
+        /* Sección del Blog */
+        .blog-preview {
             padding: 50px 20px;
             text-align: center;
             background: white;
-            margin-top: 30px;
         }
 
+        .blog-preview h2 {
+            font-size: 28px;
+            color: #4D4038;
+        }
+
+        .blog-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .blog-card {
+            width: 300px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .blog-card h3 {
+            font-size: 20px;
+            color: #4D4038;
+            margin-top: 10px;
+        }
+
+        .blog-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .blog-card a {
+            text-decoration: none;
+            color: #4D4038;
+            font-weight: bold;
+        }
+
+        .blog-card a:hover {
+            color: #A07D5A;
+        }
+
+        .blog-button {
+            margin-top: 20px;
+        }
+
+        .blog-button a {
+            background-color: #4D4038;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .blog-button a:hover {
+            background: #A07D5A;
+        }
+
+        /* Adaptaciones para móviles */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 28px;
+            }
+
+            .logo {
+                width: 140px;
+            }
+
+            .blog-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -101,6 +187,9 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
@@ -113,6 +202,7 @@
 
     <!-- Sección Principal -->
     <div class="hero-section">
+        <img src="logo.png" alt="Logo Consulta Válidamente Hablando" class="logo">
         <h1>Consulta Válidamente Hablando</h1>
     </div>
 
@@ -120,6 +210,24 @@
     <div class="evaluation-button">
         <a href="evaluacion.html">Primera Evaluación Gratuita</a>
     </div>
+
+    <!-- Resumen del Blog -->
+    <section class="blog-preview">
+        <h2>Últimos Artículos</h2>
+        <div class="blog-container">
+            <div class="blog-card">
+                <img src="https://source.unsplash.com/600x400/?therapy,mental-health" alt="Blog">
+                <h3>Validación: ¿Nos Está Ayudando o Nos Mantiene en el Mismo Lugar?</h3>
+                <p>La validación emocional puede ayudarnos, pero también mantenernos atrapados...</p>
+                <a href="articulo1.html">Leer más</a>
+            </div>
+        </div>
+        <div class="blog-button">
+            <a href="blog.html">Ver todos los artículos</a>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
