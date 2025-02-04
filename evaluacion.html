@@ -24,7 +24,7 @@
             color: white;
             text-align: center;
             padding: 14px;
-            font-size: 18px; /* Aumentado en 1/3 */
+            font-size: 18px;
             font-weight: 500;
             width: 100%;
         }
@@ -103,7 +103,7 @@
         .mensaje-contacto {
             text-align: center;
             color: #4D4038;
-            font-size: 11px; /* Reducido para mejor armonía */
+            font-size: 11px;
             margin-top: 11px;
         }
 
@@ -175,6 +175,8 @@
         </div>
     </section>
 
+
+
     <!-- Campo para ingresar correo -->
     <div class="correo-container">
         <input type="email" id="correo" placeholder="Ingresa tu correo aquí">
@@ -187,6 +189,22 @@
     <div class="submit-button">
         <button onclick="redirigirFormulario()">Continuar</button>
     </div>
+
+    <script>
+        function redirigirFormulario() {
+            let correo = document.getElementById("correo").value;
+            let urlCalendly = "https://calendly.com/validamentehablando/30min";
+
+            // Expresión regular para validar correos
+            let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (correo.match(regexCorreo)) {
+                window.location.href = urlCalendly;
+            } else {
+                alert("Por favor, ingresa un correo electrónico válido antes de continuar.");
+            }
+        }
+    </script>
 
 </body>
 </html>
