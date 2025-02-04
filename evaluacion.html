@@ -194,7 +194,7 @@
     function redirigirFormulario() {
         let correo = document.getElementById("correo").value;
         let urlCalendly = "https://calendly.com/validamentehablando/30min";
-        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbxNvZXB6dJtmmwa13sk_XQqapV8dY4xesi7LLH-VNNESQ8jOLvYJeyabo0cGGXkB4jYtA/exec"; // Nueva URL del script
+        let urlGoogleForms = "https://docs.google.com/spreadsheets/d/1q_ZNQTKFsln-KkM_HRXDa9FCluxyA9omKshKD2mP4jM"; // Reemplázalo con tu enlace de Google Forms
 
         // Expresión regular para validar correos
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -204,32 +204,13 @@
             return;
         }
 
-        console.log("✅ Enviando correo:", correo);
-        
-        // Enviar a Google Sheets
-        fetch(urlGoogleScript, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ correo: correo })
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log("📩 Respuesta del servidor:", data);
-
-            if (data.includes("OK")) {
-                console.log("✅ Correo guardado correctamente.");
-                window.location.href = urlCalendly;
-            } else {
-                alert("⚠️ Hubo un error al guardar tu correo. Inténtalo nuevamente.");
-                console.error("⚠️ Error en la respuesta del servidor:", data);
-            }
-        })
-        .catch(error => {
-            alert("🚨 Error al enviar los datos. Inténtalo nuevamente.");
-            console.error("🚨 Error en fetch():", error);
-        });
+        // Enviar a Google Forms con el correo prellenado
+        let urlFormularioConCorreo = urlGoogleForms + encodeURIComponent(correo);
+        window.open(urlFormularioConCorreo, "_blank"); // Abre el formulario en otra pestaña
+        window.location.href = urlCalendly; // Redirige a Calendly
     }
 </script>
+
 
     
 </body>
