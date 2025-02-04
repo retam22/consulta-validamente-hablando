@@ -190,7 +190,7 @@
         <button onclick="redirigirFormulario()">Continuar</button>
     </div>
 
-   <script>
+  <script>
     function redirigirFormulario() {
         let correo = document.getElementById("correo").value;
         let urlCalendly = "https://calendly.com/validamentehablando/30min";
@@ -199,29 +199,38 @@
         // Expresión regular para validar correos
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (correo.match(regexCorreo)) {
-            console.log("Correo válido:", correo);
-            
-            // Guardar en Google Sheets
-            fetch(urlGoogleScript, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ correo: correo })
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log("Respuesta del servidor:", data);
-                if (data.includes("OK")) {
-                    window.location.href = urlCalendly;
-                } else {
-                    alert("Hubo un error al guardar tu correo. Inténtalo nuevamente.");
-                }
-            });
-        } else {
-            alert("Por favor, ingresa un correo electrónico válido antes de continuar.");
+        if (!correo.match(regexCorreo)) {
+            alert("❌ Ingresa un correo electrónico válido antes de continuar.");
+            return;
         }
+
+        console.log("✅ Enviando correo:", correo);
+        
+        // Enviar a Google Sheets
+        fetch(urlGoogleScript, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ correo: correo })
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log("📩 Respuesta del servidor:", data);
+
+            if (data.includes("OK")) {
+                console.log("✅ Correo guardado correctamente.");
+                window.location.href = urlCalendly;
+            } else {
+                alert("⚠️ Hubo un error al guardar tu correo. Inténtalo nuevamente.");
+                console.error("⚠️ Error en la respuesta del servidor:", data);
+            }
+        })
+        .catch(error => {
+            alert("🚨 Error al enviar los datos. Inténtalo nuevamente.");
+            console.error("🚨 Error en fetch():", error);
+        });
     }
 </script>
+
     
 </body>
 </html>
