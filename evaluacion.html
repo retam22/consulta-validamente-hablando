@@ -191,20 +191,31 @@
     </div>
 
     <script>
-        function redirigirFormulario() {
-            let correo = document.getElementById("correo").value;
-            let urlCalendly = "https://calendly.com/validamentehablando/30min";
+    function redirigirFormulario() {
+        let correo = document.getElementById("correo").value;
+        let urlCalendly = "https://calendly.com/validamentehablando/30min";
+        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbxsHUF2MzneQqRAu7Js-psRpM9ltT0g4fGltHHHXCw1WiPfM_CaLgRs9T8ZNI2165nUfQ/exec"; // Reemplaza con tu URL real
 
-            // Expresión regular para validar correos
-            let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Expresión regular para validar correos
+        let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            if (correo.match(regexCorreo)) {
-                window.location.href = urlCalendly;
-            } else {
-                alert("Por favor, ingresa un correo electrónico válido antes de continuar.");
-            }
+        if (correo.match(regexCorreo)) {
+            // Guardar en Google Sheets
+            fetch(urlGoogleScript, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ correo: correo })
+            });
+
+            // Redirigir a Calendly
+            window.location.href = urlCalendly;
+        } else {
+            alert("Por favor, ingresa un correo electrónico válido antes de continuar.");
         }
-    </script>
+    }
+</script>
+
 
 </body>
 </html>
