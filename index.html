@@ -45,6 +45,18 @@
             color: #A07D5A !important;
         }
 
+        /* Ocultar logo en PC y en móvil */
+        .navbar-brand {
+            display: none !important;
+        }
+
+        /* Ajuste del menú hamburguesa en móviles */
+        @media (max-width: 992px) {
+            .navbar-toggler {
+                margin-left: auto;
+            }
+        }
+
         /* Hero Section */
         .hero-section {
             background-color: #F2E3C6;
@@ -183,30 +195,24 @@
         Primera evaluación gratuita de 30 minutos para ingreso.
     </div>
 
-   <!-- Menú de navegación -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <!-- Logo solo en móvil -->
-        <a class="navbar-brand d-lg-none" href="index.html">
-            <img src="logo.png" alt="Logo" style="height: 40px;">
-        </a>
-        
-        <!-- Botón de menú hamburguesa en móvil -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Menú de navegación -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
 
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
-                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-            </ul>
+            <!-- Botón hamburguesa en móvil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-
-
+    </nav>
 
     <!-- Sección Principal -->
     <div class="hero-section">
