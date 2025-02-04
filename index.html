@@ -45,15 +45,16 @@
             color: #A07D5A !important;
         }
 
-        /* Ocultar logo en PC y en móvil */
+        /* Ocultar logo completamente */
         .navbar-brand {
             display: none !important;
         }
 
-        /* Ajuste del menú hamburguesa en móviles */
+        /* Mover el botón de menú hamburguesa a la izquierda */
         @media (max-width: 992px) {
             .navbar-toggler {
-                margin-left: auto;
+                margin-right: auto;  /* Empuja el icono hacia la izquierda */
+                margin-left: 10px;  /* Espacio para que no quede pegado */
             }
         }
 
@@ -199,7 +200,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
 
-            <!-- Botón hamburguesa en móvil -->
+            <!-- Botón hamburguesa en móvil alineado a la izquierda -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
