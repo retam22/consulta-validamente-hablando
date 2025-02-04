@@ -194,9 +194,8 @@
     function redirigirFormulario() {
         let correo = document.getElementById("correo").value;
         let urlCalendly = "https://calendly.com/validamentehablando/30min";
-        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbyr7HGA9FW0Z2L-fRDlMIou9EQGs2gKShW1hrGyyeuMGkSQINfbj2FeXFgVQnS0PSJx/exec"; // Reemplaza con tu URL
+        let urlGoogleScript = "https://script.google.com/macros/s/TU_NUEVA_URL/exec"; // Reemplaza con la nueva URL
 
-        // Expresión regular para validar correos
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!correo.match(regexCorreo)) {
@@ -206,7 +205,6 @@
 
         console.log("✅ Enviando correo:", correo);
         
-        // Enviar a Google Sheets
         fetch(urlGoogleScript, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
