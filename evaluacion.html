@@ -194,7 +194,7 @@
     function redirigirFormulario() {
         let correo = document.getElementById("correo").value;
         let urlCalendly = "https://calendly.com/validamentehablando/30min";
-        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbyvkAtlrMq4SbtLxCRXjInHTr0kmx9CTVntbh5VgQ-2AcOpQdsDiajVdWKD___UMcw1/exec"; // Reemplaza con tu nueva URL
+        let urlGoogleScript = "https://script.google.com/macros/s/AKfycby1d6dQXp-9Pr8czLlmkuWV2Rgc0UhPmUMHEDVf5SqCZQvPDlCVjP8HiG2Y8HtIZDoJ/exec"; // Reemplaza con tu nueva URL
 
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -203,22 +203,37 @@
             return;
         }
 
-        console.log("✅ Enviando correo:", correo);
-        
-        // Enviar a Google Sheets usando form-urlencoded
+        // Obtener los síntomas seleccionados
+        let sintomasSeleccionados = [];
+        document.querySelectorAll(".sintoma-item input:checked").forEach(input => {
+            sintomasSeleccionados.push(input.parentElement.textContent.trim());
+        });
+
+        if (sintomasSeleccionados.length === 0) {
+            alert("⚠️ Selecciona al menos un síntoma antes de continuar.");
+            return;
+        }
+
+        console.log("✅ Enviando correo y síntomas:", correo, sintomasSeleccionados.join(", "));
+
+        // Enviar datos a Google Sheets
+        let formData = new URLSearchParams();
+        formData.append("correo", correo);
+        formData.append("sintomas", sintomasSeleccionados.join(", "));
+
         fetch(urlGoogleScript, {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: "correo=" + encodeURIComponent(correo)
+            body: formData.toString()
         })
         .then(response => response.text())
         .then(data => {
             console.log("📩 Respuesta del servidor:", data);
             if (data.includes("OK")) {
-                console.log("✅ Correo guardado correctamente.");
+                console.log("✅ Correo y síntomas guardados correctamente.");
                 window.location.href = urlCalendly;
             } else {
-                alert("⚠️ Hubo un error al guardar tu correo. Inténtalo nuevamente.");
+                alert("⚠️ Hubo un error al guardar los datos. Inténtalo nuevamente.");
                 console.error("⚠️ Error en la respuesta del servidor:", data);
             }
         })
