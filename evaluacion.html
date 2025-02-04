@@ -194,7 +194,7 @@
     function redirigirFormulario() {
         let correo = document.getElementById("correo").value;
         let urlCalendly = "https://calendly.com/validamentehablando/30min";
-        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbxsHUF2MzneQqRAu7Js-psRpM9ltT0g4fGltHHHXCw1WiPfM_CaLgRs9T8ZNI2165nUfQ/exec"; // Tu URL de Apps Script
+        let urlGoogleScript = "https://script.google.com/macros/s/AKfycbxBYCR6xpOOSYmZbcoKGXhXXuF_mimAYBKkrH9-Fa1fevhDN65dbpp33Gh1EuC1dnHpLg/exec"; // Reemplaza con la nueva URL
 
         // Expresión regular para validar correos
         let regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -206,8 +206,9 @@
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ correo: correo })
             })
-            .then(() => {
-                // Redirigir a Calendly después de guardar
+            .then(response => response.text())
+            .then(data => {
+                console.log("Respuesta del servidor:", data); // Para verificar si el script responde
                 window.location.href = urlCalendly;
             })
             .catch(error => {
@@ -219,7 +220,6 @@
         }
     }
 </script>
-
 
 
 </body>
