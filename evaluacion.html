@@ -162,11 +162,9 @@
             <label><input type="checkbox" id="check2" onclick="validarAceptacion()"> Acepto participar de manera voluntaria.</label>
             <label><input type="checkbox" id="check3" onclick="validarAceptacion()"> Entiendo que este test no reemplaza una evaluación profesional.</label>
 
-            <!-- Captcha de Cloudflare -->
-            <div id="cf-captcha">
-                <!-- Aquí va el CAPTCHA de Cloudflare -->
-                <input type="text" id="captcha" placeholder="Completa el CAPTCHA" oninput="validarAceptacion()">
-            </div>
+           <div class="cf-turnstile" data-sitekey="0x4AAAAAAA7u7PZqlODRbzUp"></div>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 
             <button id="btnContinuar" onclick="aceptarCondiciones()" disabled>Comenzar el Cuestionario</button>
         </div>
