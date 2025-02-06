@@ -26,18 +26,28 @@
         .navbar {
             background-color: #F2E3C6;
             text-align: center;
-            padding: 15px 0;
+            padding: 10px 0;
         }
 
-        .navbar a {
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
             color: #4D4038;
             font-weight: bold;
             text-decoration: none;
-            margin: 0 15px;
             font-size: 18px;
         }
 
-        .navbar a:hover {
+        .navbar ul li a:hover {
             color: #A07D5A;
         }
 
@@ -105,12 +115,13 @@
 </div>
 
 <!-- Menú de navegación -->
-<div class="navbar">
-    <a href="index.html">Inicio</a>
-    <a href="blog.html">Blog</a>
-    <a href="contacto.html">Contacto</a>
-</div>
-
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</nav>
 <!-- Sección de Preguntas Generales -->
 <section class="content-section">
     <h2 class="text-center">Preguntas Generales</h2>
