@@ -87,27 +87,27 @@
 
     <script>
         const preguntas = [
-            "Sentí que estaba a punto de entrar en pánico.",
-            "No pude experimentar ningún sentimiento positivo.",
+            "Sentí que me costaba mucho tranquilizarme.",
+            "Sentí sequedad de boca.",
+            "No pude experimentar ninguna sensación positiva.",
+            "Me costó respirar (p. ej., respiración excesivamente rápida, falta de respiración aun sin hacer ejercicio).",
+            "Me costó mucho tener iniciativa para hacer cosas.",
+            "Tendí a reaccionar de manera desproporcionada a las situaciones.",
+            "Tuve temblores (p. ej., en las manos).",
+            "Sentí que estaba nervioso/a.",
+            "Me preocupé por situaciones en las que podía entrar en pánico y hacer el ridículo.",
             "Sentí que no tenía nada por qué esperar.",
-            "Sentí que estaba usando mucha energía nerviosa.",
-            "Me sentí triste y deprimido/a.",
-            "Me sentí intolerante con las cosas que me impedían continuar con lo que estaba haciendo.",
-            "Sentí que estaba al borde del pánico.",
-            "No pude entusiasmarme con nada.",
+            "Sentí que me irritaba fácilmente.",
+            "Sentí que me costaba relajarme.",
+            "Me sentí desanimado/a y triste.",
+            "No toleré que me interrumpieran en lo que estaba haciendo.",
+            "Sentí que estaba al borde de una crisis de nervios.",
             "Sentí que no valía nada como persona.",
-            "Sentí que estaba bastante irritable.",
-            "Sentí que estaba cerca de entrar en pánico.",
-            "Sentí que no tenía nada que esperar.",
-            "Sentí que no podía soportar nada más.",
-            "Sentí que no podía entusiasmarme con nada.",
-            "Sentí que no valía nada.",
-            "Sentí que estaba bastante irritable.",
-            "Sentí que estaba cerca de entrar en pánico.",
-            "Sentí que no tenía nada que esperar.",
-            "Sentí que no podía soportar nada más.",
-            "Sentí que no podía entusiasmarme con nada.",
-            "Sentí que no valía nada."
+            "Sentí que era bastante irritable.",
+            "Sentí cambios en mi ritmo cardíaco, aunque no haya hecho ningún esfuerzo físico (p. ej., aumento de la frecuencia cardíaca o palpitaciones).",
+            "Sentí miedo sin motivo.",
+            "Sentí que la vida no tenía sentido.",
+            "Sentí que no podía seguir adelante con las cosas."
         ];
 
         // Renderizar preguntas en la página
@@ -134,9 +134,9 @@
 
             for (let i = 0; i < 21; i++) {
                 let value = parseInt(document.getElementById(`q${i}`).value);
-                if ([0, 2, 4, 8, 12, 14, 18, 20].includes(i)) dep += value;
-                if ([1, 5, 6, 10, 11, 15, 16, 19].includes(i)) anx += value;
-                if ([3, 7, 9, 13, 17].includes(i)) str += value;
+                if ([0, 2, 4, 10, 12, 16, 20].includes(i)) dep += value;
+                if ([1, 5, 6, 8, 13, 18, 19].includes(i)) anx += value;
+                if ([3, 7, 9, 11, 14, 15, 17].includes(i)) str += value;
             }
 
             function evaluarNivel(valor, categoria) {
@@ -156,7 +156,7 @@
         function enviarDatosYRedirigir() {
             const email = document.getElementById("email").value;
             const fecha = new Date().toLocaleString();
-            const scriptURL = "https://script.google.com/macros/s/AKfycbzPZUCINfQ0I2j7a6dSHEr9WDnyOUPTsfIaOXGzrbV06yfpDkC6JuCdZv10465kKup4/exec";
+            const scriptURL = "https://script.google.com/macros/s/AKfycby1d6dQXp-9Pr8czLlmkuWV2Rgc0UhPmUMHEDVf5SqCZQvPDlCVjP8HiG2Y8HtIZDoJ/exec";
             const calendlyURL = "https://calendly.com/validamentehablando/30min";
 
             const formData = new FormData();
