@@ -44,7 +44,7 @@
             margin-top: 10px;
             text-align: center;
             color: white;
-            text-decoration: none; /* Oculta el subrayado del enlace */
+            text-decoration: none;
             display: inline-block;
         }
 
@@ -157,6 +157,7 @@
             const email = document.getElementById("email").value;
             const fecha = new Date().toLocaleString();
             const scriptURL = "https://script.google.com/macros/s/AKfycby1d6dQXp-9Pr8czLlmkuWV2Rgc0UhPmUMHEDVf5SqCZQvPDlCVjP8HiG2Y8HtIZDoJ/exec";
+            const calendlyURL = "https://calendly.com/validamentehablando/30min";
 
             const formData = new FormData();
             formData.append("email", email);
@@ -167,15 +168,15 @@
                 method: "POST",
                 body: formData
             })
-            .then(response => {
-                if (response.ok) {
-                    console.log("Datos enviados correctamente.");
-                    window.location.href = "https://calendly.com/validamentehablando/30min?back=1&month=2025-02";
-                } else {
-                    console.error("Error en la respuesta del servidor.");
-                }
+            .then(response => response.text())
+            .then(() => {
+                console.log("Datos enviados correctamente.");
+                window.location.href = calendlyURL;
             })
-            .catch(error => console.error("Error al enviar los datos:", error));
+            .catch(error => {
+                console.error("Error al enviar los datos:", error);
+                window.location.href = calendlyURL;
+            });
         }
     </script>
 
