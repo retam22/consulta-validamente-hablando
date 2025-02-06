@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de la Página - Consulta Válidamente Hablando</title>
+    <title>Preguntas Frecuentes - Consulta Válidamente Hablando</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Importamos las mismas tipografías -->
+    <!-- Importamos las tipografías -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -23,7 +23,7 @@
             background-color: #4D4038;
             color: white;
             text-align: center;
-            padding: 10px 0;
+            padding: 10px;
             font-size: 18px;
             font-family: 'Poppins', sans-serif;
             font-weight: 400;
@@ -49,7 +49,12 @@
         .hero-section {
             background-color: #F2E3C6;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
+        }
+        .hero-section h1 {
+            font-size: 32px;
+            color: #4D4038;
+            font-weight: 700;
         }
 
         /* Sección de contenido */
@@ -60,24 +65,38 @@
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
         }
 
-        /* Botón de regreso */
-        .back-button {
+        /* Estilo del acordeón */
+        .accordion-button {
+            font-weight: bold;
+            background-color: #F2E3C6;
+            color: #4D4038;
+        }
+        .accordion-button:hover {
+            background-color: #E8D9C1;
+        }
+        .accordion-body {
+            font-size: 16px;
+            color: #4D4038;
+        }
+
+        /* Botón de Evaluación Gratuita */
+        .evaluation-button {
             text-align: center;
             margin-top: 20px;
         }
-        .back-button a {
+        .evaluation-button a {
             background-color: #4D4038;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
         }
-        .back-button a:hover {
-            background: #A07D5A;
+        .evaluation-button a:hover {
+            background-color: #A07D5A;
         }
 
         /* Adaptaciones para móviles */
@@ -92,7 +111,7 @@
 
     <!-- Frase destacada -->
     <div class="top-banner">
-        Bienvenido/a a nuestra página
+        Resuelve tus dudas sobre la terapia y la consulta gratuita.
     </div>
 
     <!-- Menú de navegación -->
@@ -112,19 +131,65 @@
 
     <!-- Sección Principal -->
     <div class="hero-section">
-        <h1>Título de la Página</h1>
-        <p>Subtítulo o descripción breve de la página.</p>
+        <h1>Preguntas Frecuentes</h1>
+        <p>Encuentra respuestas a las dudas más comunes sobre nuestra terapia.</p>
     </div>
 
-    <!-- Sección de Contenido (Aquí va el contenido específico de cada página) -->
+    <!-- Sección de Contenido -->
     <section class="content-section">
-        <h2>Encabezado Principal</h2>
-        <p>Aquí va el contenido único de la página.</p>
+        <h2>Preguntas Generales</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        ¿Qué es la psicoterapia online?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                        La psicoterapia online es una modalidad de atención psicológica que se realiza a través de internet, utilizando herramientas como videollamadas o chats.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        ¿Es efectiva la terapia psicológica en línea?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        Sí, diversos estudios han demostrado que la terapia online es tan efectiva como la presencial para tratar problemas como ansiedad, depresión y estrés.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Más preguntas aquí -->
+        </div>
+
+        <h2 class="mt-4">Preguntas sobre la Primera Consulta Gratuita</h2>
+        <div class="accordion" id="faqAccordion2">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA1">
+                        ¿Cuál es el propósito de la primera consulta gratuita?
+                    </button>
+                </h2>
+                <div id="faqA1" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        Permite al terapeuta conocer tu caso y determinar si la terapia online es adecuada para ti.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Más preguntas aquí -->
+        </div>
     </section>
 
-    <!-- Botón de regreso -->
-    <div class="back-button">
-        <a href="index.html">Volver al Inicio</a>
+    <!-- Botón de Evaluación Gratuita -->
+    <div class="evaluation-button">
+        <a href="evaluacion.html">Agendar Evaluación Gratuita</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
