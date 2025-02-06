@@ -42,10 +42,22 @@
             cursor: pointer;
             width: 100%;
             margin-top: 10px;
+            text-align: center;
+            color: white;
+            text-decoration: none; /* Oculta el subrayado del enlace */
+            display: inline-block;
         }
 
         .btn-primary:hover {
             background-color: #8C654A;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
 
     </style>
@@ -64,12 +76,16 @@
         <div id="resultSection" class="result">
             <h3>Resultados</h3>
             <p id="resultMessage"></p>
-            <a id="calendlyLink" href="https://calendly.com/validamentehablando/30min?back=1&month=2025-02" target="_blank" class="btn-primary">Agendar sesión gratuita</a>
+
+            <!-- Campo para el correo electrónico opcional -->
+            <input type="email" id="email" class="email-input" placeholder="Ingresa tu correo (opcional)">
+            
+            <!-- Botón que enviará datos y redirigirá a Calendly -->
+            <button class="btn-primary" onclick="enviarDatosYRedirigir()">Agendar sesión gratuita</button>
         </div>
     </div>
 
     <script>
-        // Preguntas del DASS-21
         const preguntas = [
             "Sentí que estaba a punto de entrar en pánico.",
             "No pude experimentar ningún sentimiento positivo.",
@@ -94,7 +110,7 @@
             "Sentí que no valía nada."
         ];
 
-        // Renderizar preguntas
+        // Renderizar preguntas en la página
         const questionContainer = document.getElementById("questions");
         preguntas.forEach((pregunta, index) => {
             const div = document.createElement("div");
@@ -111,38 +127,47 @@
             questionContainer.appendChild(div);
         });
 
+        let resultadoFinal = "";
+
         function calcularResultados() {
             let dep = 0, anx = 0, str = 0;
 
             for (let i = 0; i < 21; i++) {
                 let value = parseInt(document.getElementById(`q${i}`).value);
-                if ([0, 2, 4, 8, 12, 14, 18, 20].includes(i)) dep += value; 
-                if ([1, 5, 6, 10, 11, 15, 16, 19].includes(i)) anx += value; 
+                if ([0, 2, 4, 8, 12, 14, 18, 20].includes(i)) dep += value;
+                if ([1, 5, 6, 10, 11, 15, 16, 19].includes(i)) anx += value;
                 if ([3, 7, 9, 13, 17].includes(i)) str += value;
             }
 
-            let mensaje = "";
-            let urlCalendly = "https://calendly.com/validamentehablando/30min?back=1&month=2025-02";
-
             function evaluarNivel(valor, categoria) {
-                if (valor >= 28) return `Tu nivel de ${categoria} es muy alto. Te recomendamos buscar apoyo profesional lo antes posible.`;
-                if (valor >= 21) return `Tienes un nivel alto de ${categoria}, lo que puede estar afectando tu vida diaria.`;
-                if (valor >= 14) return `Tus resultados indican un nivel moderado de ${categoria}. Es importante trabajar en estrategias de manejo.`;
-                if (valor >= 10) return `Tu nivel de ${categoria} es leve. Es recomendable aplicar técnicas de relajación.`;
-                return `Tu nivel de ${categoria} es normal. Continúa cuidando tu bienestar emocional.`;
+                if (valor >= 28) return `Tu nivel de ${categoria} es Muy Severo.`;
+                if (valor >= 21) return `Tu nivel de ${categoria} es Severo.`;
+                if (valor >= 14) return `Tu nivel de ${categoria} es Moderado.`;
+                if (valor >= 10) return `Tu nivel de ${categoria} es Leve.`;
+                return `Tu nivel de ${categoria} es Normal.`;
             }
 
-            mensaje += evaluarNivel(dep, "depresión") + "<br>";
-            mensaje += evaluarNivel(anx, "ansiedad") + "<br>";
-            mensaje += evaluarNivel(str, "estrés") + "<br>";
+            resultadoFinal = `${evaluarNivel(dep, "depresión")}\n${evaluarNivel(anx, "ansiedad")}\n${evaluarNivel(str, "estrés")}`;
 
-            if (dep >= 14 || anx >= 10 || str >= 15) {
-                mensaje += `<br>💡 Si quieres orientación profesional, puedes reservar una consulta gratuita conmigo.`;
-            }
-
-            document.getElementById("resultMessage").innerHTML = mensaje;
+            document.getElementById("resultMessage").innerHTML = resultadoFinal.replace(/\n/g, "<br>");
             document.getElementById("resultSection").style.display = "block";
-            document.getElementById("calendlyLink").href = urlCalendly;
+        }
+
+        function enviarDatosYRedirigir() {
+            const email = document.getElementById("email").value;
+            const fecha = new Date().toLocaleString();
+            const scriptURL = "https://script.google.com/macros/s/AKfycby1d6dQXp-9Pr8czLlmkuWV2Rgc0UhPmUMHEDVf5SqCZQvPDlCVjP8HiG2Y8HtIZDoJ/exec";
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: JSON.stringify({ email, resultadoFinal, fecha }),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => {
+                console.log("Datos enviados correctamente.");
+                window.location.href = "https://calendly.com/validamentehablando/30min?back=1&month=2025-02";
+            })
+            .catch(error => console.error("Error al enviar los datos:", error));
         }
     </script>
 
