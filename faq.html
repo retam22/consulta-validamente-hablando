@@ -153,6 +153,48 @@
             </div>
         </div>
 
+        <div class="accordion-item">
+            <div class="accordion-label">¿Cómo puedo prepararme para la primera consulta de terapia online?</div>
+            <div class="accordion-content">
+                Reflexiona sobre tus objetivos, dudas y expectativas. Asegúrate de estar en un espacio privado y cómodo.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-label">¿Qué sucede si decido no continuar después de la primera consulta?</div>
+            <div class="accordion-content">
+                No hay compromiso de continuar. Si decides no seguir, el terapeuta puede sugerirte otros recursos o profesionales.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-label">¿La primera consulta gratuita implica algún compromiso financiero?</div>
+            <div class="accordion-content">
+                No, la consulta es completamente gratuita y no genera ninguna obligación económica.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-label">¿Puedo solicitar una primera consulta gratuita con cualquier terapeuta?</div>
+            <div class="accordion-content">
+                Depende del terapeuta o la plataforma. Es recomendable revisar su política antes de solicitar una sesión.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-label">¿Qué tipo de preguntas me harán en la primera consulta?</div>
+            <div class="accordion-content">
+                Se abordarán temas como tu motivo de consulta, historial emocional, entorno social y expectativas sobre la terapia.
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-label">¿Cómo agendo una primera consulta gratuita de terapia online?</div>
+            <div class="accordion-content">
+                Puedes agendarla a través de la página web, redes sociales o contactando directamente con el terapeuta.
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -160,24 +202,3 @@
 <div class="text-center mt-4">
     <a href="evaluacion.html" class="btn btn-dark btn-lg">Agendar Evaluación Gratuita</a>
 </div>
-
-<!-- JavaScript para el Acordeón -->
-<script>
-    document.querySelectorAll(".accordion-label").forEach(label => {
-        label.addEventListener("click", function() {
-            const content = this.nextElementSibling;
-            const isActive = content.style.maxHeight;
-
-            document.querySelectorAll(".accordion-content").forEach(item => {
-                item.style.maxHeight = null;
-            });
-
-            if (!isActive) {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    });
-</script>
-
-</body>
-</html>
