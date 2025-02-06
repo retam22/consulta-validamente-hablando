@@ -89,7 +89,7 @@
             var check1 = document.getElementById("check1").checked;
             var check2 = document.getElementById("check2").checked;
             var check3 = document.getElementById("check3").checked;
-            var captchaResuelto = document.getElementById("captcha").value.length > 0; // Simulación de captcha
+            var captchaResuelto = document.querySelector(".cf-turnstile iframe") !== null; // Simulación de captcha
 
             document.getElementById("btnContinuar").disabled = !(check1 && check2 && check3 && captchaResuelto);
         }
