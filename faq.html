@@ -33,7 +33,6 @@
         .navbar {
             background-color: #F2E3C6;
             border-bottom: 2px solid #D9C2A3;
-            padding: 10px 0;
         }
         .navbar-nav .nav-link {
             color: #4D4038 !important;
@@ -59,9 +58,9 @@
 
         /* Sección de contenido */
         .content-section {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -73,7 +72,7 @@
             background-color: #F2E3C6;
             color: #4D4038;
         }
-        .accordion-button:hover {
+        .accordion-button:not(.collapsed) {
             background-color: #E8D9C1;
         }
         .accordion-body {
@@ -102,7 +101,10 @@
         /* Adaptaciones para móviles */
         @media (max-width: 768px) {
             .hero-section {
-                padding: 40px 15px;
+                padding: 30px 15px;
+            }
+            .content-section {
+                padding: 20px;
             }
         }
     </style>
@@ -117,6 +119,9 @@
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
@@ -135,145 +140,144 @@
         <p>Encuentra respuestas a las dudas más comunes sobre nuestra terapia.</p>
     </div>
 
-<!-- Sección de Contenido -->
-<section class="content-section">
-    <h2>Preguntas Generales</h2>
-    <div class="accordion" id="faqAccordion">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                    ¿Qué es la psicoterapia online?
-                </button>
-            </h2>
-            <div id="faq1" class="accordion-collapse collapse show">
-                <div class="accordion-body">
-                    La psicoterapia online es una modalidad de atención psicológica que se realiza a través de internet, utilizando herramientas como videollamadas o chats.
+    <!-- Sección de Preguntas Generales -->
+    <section class="content-section">
+        <h2 class="text-center">Preguntas Generales</h2>
+        <div class="accordion" id="faqAccordion">
+            <!-- Preguntas dinámicas -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        ¿Qué es la psicoterapia online?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                        La psicoterapia online es una modalidad de atención psicológica que se realiza a través de internet, utilizando herramientas como videollamadas o chats.
+                    </div>
                 </div>
             </div>
+           <div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            ¿Es efectiva la terapia psicológica en línea?
+        </button>
+    </h2>
+    <div id="faq2" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            Sí, diversos estudios han demostrado que la terapia online es tan efectiva como la presencial para tratar problemas como ansiedad, depresión y estrés.
         </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                    ¿Es efectiva la terapia psicológica en línea?
-                </button>
-            </h2>
-            <div id="faq2" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Sí, diversos estudios han demostrado que la terapia online es tan efectiva como la presencial para tratar problemas como ansiedad, depresión y estrés.
-                </div>
-            </div>
-        </div>
-
-        <!-- Nuevas Preguntas -->
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                    ¿Qué ventajas ofrece la terapia online frente a la presencial?
-                </button>
-            </h2>
-            <div id="faq3" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    La terapia online ofrece flexibilidad horaria, elimina la necesidad de desplazamientos, brinda acceso a especialistas sin importar la ubicación geográfica y permite recibir apoyo en un entorno familiar y cómodo.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                    ¿Cómo garantizan la confidencialidad en las sesiones de terapia online?
-                </button>
-            </h2>
-            <div id="faq4" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Las sesiones se realizan mediante plataformas seguras que cumplen con estándares de privacidad y protección de datos. Además, los psicólogos están comprometidos con el secreto profesional, asegurando que toda la información compartida se mantenga confidencial.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                    ¿Qué necesito para comenzar una terapia psicológica online?
-                </button>
-            </h2>
-            <div id="faq5" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Solo necesitas un dispositivo con conexión a internet, como un ordenador, tablet o smartphone, y un espacio privado donde te sientas cómodo para hablar abiertamente durante las sesiones.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                    ¿Cómo se estructura una sesión de psicoterapia en línea?
-                </button>
-            </h2>
-            <div id="faq6" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Las sesiones suelen durar entre 45 y 60 minutos. Al igual que en la terapia presencial, se abordan las preocupaciones del paciente, se establecen objetivos terapéuticos y se trabajan estrategias para el bienestar emocional.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
-                    ¿Puedo recibir terapia online si estoy en otro país o zona horaria?
-                </button>
-            </h2>
-            <div id="faq7" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Sí, la terapia online trasciende fronteras. Es importante coordinar con el terapeuta para encontrar horarios que funcionen para ambas partes, teniendo en cuenta las diferencias horarias.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
-                    ¿Qué tipos de problemas se pueden tratar mediante psicoterapia online?
-                </button>
-            </h2>
-            <div id="faq8" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    La terapia online es efectiva para una variedad de problemas, incluyendo ansiedad, depresión, estrés, problemas de relación, trastornos alimentarios y más.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
-                    ¿Cómo elijo al psicólogo adecuado para mí en una plataforma online?
-                </button>
-            </h2>
-            <div id="faq9" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Es recomendable revisar las credenciales del terapeuta, su experiencia en áreas específicas y, si es posible, leer opiniones de otros pacientes. Muchas plataformas ofrecen perfiles detallados de los profesionales para ayudarte en tu elección.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
-                    ¿Qué hago si tengo problemas técnicos durante una sesión?
-                </button>
-            </h2>
-            <div id="faq10" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Es importante comunicar cualquier problema técnico al terapeuta de inmediato. Juntos pueden buscar soluciones, como reprogramar la sesión o cambiar a otro medio de comunicación temporalmente.
-                </div>
-            </div>
-        </div>
-
     </div>
-</section>
+</div>
 
-<!-- Sección de Preguntas sobre la Primera Consulta Gratuita -->
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            ¿Qué ventajas ofrece la terapia online frente a la presencial?
+        </button>
+    </h2>
+    <div id="faq3" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            La terapia online ofrece flexibilidad horaria, elimina la necesidad de desplazamientos, brinda acceso a especialistas sin importar la ubicación geográfica y permite recibir apoyo en un entorno familiar y cómodo.
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+            ¿Cómo garantizan la confidencialidad en las sesiones de terapia online?
+        </button>
+    </h2>
+    <div id="faq4" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            Las sesiones se realizan mediante plataformas seguras que cumplen con estándares de privacidad y protección de datos. Además, los psicólogos están comprometidos con el secreto profesional, asegurando que toda la información compartida se mantenga confidencial.
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+            ¿Qué necesito para comenzar una terapia psicológica online?
+        </button>
+    </h2>
+    <div id="faq5" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            Solo necesitas un dispositivo con conexión a internet, como un ordenador, tablet o smartphone, y un espacio privado donde te sientas cómodo para hablar abiertamente durante las sesiones.
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+            ¿Cómo se estructura una sesión de psicoterapia en línea?
+        </button>
+    </h2>
+    <div id="faq6" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            Las sesiones suelen durar entre 45 y 60 minutos. Al igual que en la terapia presencial, se abordan las preocupaciones del paciente, se establecen objetivos terapéuticos y se trabajan estrategias para el bienestar emocional.
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+            ¿Puedo recibir terapia online si estoy en otro país o zona horaria?
+        </button>
+    </h2>
+    <div id="faq7" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            Sí, la terapia online trasciende fronteras. Es importante coordinar con el terapeuta para encontrar horarios que funcionen para ambas partes, teniendo en cuenta las diferencias horarias.
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+            ¿Qué tipos de problemas se pueden tratar mediante psicoterapia online?
+        </button>
+    </h2>
+    <div id="faq8" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            La terapia online es efectiva para una variedad de problemas, incluyendo ansiedad, depresión, estrés, problemas de relación, trastornos alimentarios y más.
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+            ¿Cómo elijo al psicólogo adecuado para mí en una plataforma online?
+        </button>
+    </h2>
+    <div id="faq9" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            Es recomendable revisar las credenciales del terapeuta, su experiencia en áreas específicas y, si es posible, leer opiniones de otros pacientes. Muchas plataformas ofrecen perfiles detallados de los profesionales para ayudarte en tu elección.
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+            ¿Qué hago si tengo problemas técnicos durante una sesión?
+        </button>
+    </h2>
+    <div id="faq10" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            Es importante comunicar cualquier problema técnico al terapeuta de inmediato. Juntos pueden buscar soluciones, como reprogramar la sesión o cambiar a otro medio de comunicación temporalmente.
+        </div>
+    </div>
+</div>
+
+        </div>
+    </section>
+
+   <!-- Sección de Preguntas sobre la Primera Consulta Gratuita -->
 <section class="content-section">
     <h2 class="text-center">Preguntas sobre la Primera Consulta Gratuita</h2>
     <div class="accordion mx-auto" id="faqAccordion2" style="max-width: 800px;">
