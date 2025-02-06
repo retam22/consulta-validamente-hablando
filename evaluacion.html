@@ -86,13 +86,21 @@
 
     <script>
         function validarAceptacion() {
-            var check1 = document.getElementById("check1").checked;
-            var check2 = document.getElementById("check2").checked;
-            var check3 = document.getElementById("check3").checked;
-            var captchaResuelto = document.querySelector(".cf-turnstile iframe") !== null; // Simulación de captcha
+           var check1 = document.getElementById("check1").checked;
+           var check2 = document.getElementById("check2").checked;
+           var check3 = document.getElementById("check3").checked;
 
-            document.getElementById("btnContinuar").disabled = !(check1 && check2 && check3 && captchaResuelto);
-        }
+          // Solo verificamos las casillas, sin depender del CAPTCHA
+           document.getElementById("btnContinuar").disabled = !(check1 && check2 && check3);
+}
+
+// Asegurar que la validación se active cuando el usuario marque las casillas
+         document.addEventListener("DOMContentLoaded", function () {
+             document.getElementById("check1").addEventListener("change", validarAceptacion);
+             document.getElementById("check2").addEventListener("change", validarAceptacion);
+             document.getElementById("check3").addEventListener("change", validarAceptacion);
+});
+
 
         function aceptarCondiciones() {
             window.location.href = "test.html";
