@@ -45,31 +45,6 @@
             color: #A07D5A !important;
         }
 
-        /* Ocultar logo completamente */
-        .navbar-brand {
-            display: none !important;
-        }
-
-        /* Mover el botón de menú hamburguesa a la izquierda */
-        @media (max-width: 992px) {
-            .navbar-toggler {
-                margin-right: auto;
-                margin-left: 10px;
-            }
-        }
-
-        /* Sección principal */
-        .hero-section {
-            background-color: #F2E3C6;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        .hero-section h2 {
-            font-size: 24px;
-            color: #4D4038;
-            font-weight: 600;
-        }
-
         /* Sección de consideraciones éticas */
         .ethical-section {
             background-color: white;
@@ -80,11 +55,18 @@
         }
         .ethical-section h3 {
             color: #4D4038;
-            font-size: 20px;
+            font-size: 22px;
+            font-weight: 600;
         }
         .ethical-section p {
             font-size: 16px;
             color: #333;
+        }
+        .ethical-section label {
+            font-size: 16px;
+            color: #4D4038;
+            display: block;
+            margin-top: 10px;
         }
         .ethical-section button {
             background-color: #A07D5A;
@@ -94,21 +76,26 @@
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
-        .ethical-section button:hover {
-            background-color: #8C654A;
-        }
-
-        /* Ocultar test hasta aceptar condiciones */
-        #test-section {
-            display: none;
+        .ethical-section button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
         }
     </style>
 
     <script>
+        function validarAceptacion() {
+            var check1 = document.getElementById("check1").checked;
+            var check2 = document.getElementById("check2").checked;
+            var check3 = document.getElementById("check3").checked;
+            var captchaResuelto = document.getElementById("captcha").value.length > 0; // Simulación de captcha
+
+            document.getElementById("btnContinuar").disabled = !(check1 && check2 && check3 && captchaResuelto);
+        }
+
         function aceptarCondiciones() {
-            document.getElementById("ethical-section").style.display = "none";
-            document.getElementById("test-section").style.display = "block";
+            window.location.href = "test.html";
         }
     </script>
 </head>
@@ -129,9 +116,8 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="test.html">Realizar el Test</a></li>
-                    <li class="nav-item"><a class="nav-link" href="resultados.html">Resultados</a></li>
-                    <li class="nav-item"><a class="nav-link" href="recursos.html">Recursos y Ayuda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 </ul>
             </div>
@@ -140,19 +126,33 @@
 
     <!-- Sección de consideraciones éticas -->
     <div class="container">
-        <div id="ethical-section" class="ethical-section">
-            <h3>Antes de comenzar</h3>
-            <p>El test DASS-21 es una herramienta de evaluación, no un diagnóstico clínico. Tus respuestas no serán almacenadas ni compartidas. Si obtienes resultados elevados, te recomendamos buscar apoyo profesional. El test está diseñado para mayores de 16 años.</p>
-            <button onclick="aceptarCondiciones()">Acepto y continuar</button>
-        </div>
-    </div>
+        <div class="ethical-section">
+            <h3>Evaluación de Estrés, Ansiedad y Depresión (DASS-21)</h3>
+            <p>Antes de comenzar, por favor lee y acepta las siguientes condiciones:</p>
 
-    <!-- Sección del Test (inicialmente oculta) -->
-    <div class="container" id="test-section">
-        <div class="hero-section">
-            <h2>Responde el Test DASS-21</h2>
-            <p>Aquí irá el cuestionario DASS-21 con preguntas interactivas.</p>
-            <!-- Implementación del test pendiente -->
+            <p><strong>1. Propósito del Cuestionario:</strong> Esta es una autoevaluación inicial y no reemplaza un diagnóstico profesional.</p>
+            <p><strong>2. ¿Quiénes pueden responder?</strong> Solo mayores de 18 años. Menores deben consultar con un adulto.</p>
+            <p><strong>3. Participación Voluntaria:</strong> Puedes abandonar el test en cualquier momento.</p>
+            <p><strong>4. Confidencialidad:</strong> No se solicitan datos personales y la información es anónima.</p>
+            <p><strong>5. Situaciones de Crisis:</strong> Si necesitas ayuda inmediata, contacta a:</p>
+            <ul>
+                <li>📞 Salud Responde: <strong>600 360 7777</strong></li>
+                <li>📞 Prevención del Suicidio: <strong>4141 opción 1</strong></li>
+                <li>📞 SAMU (emergencias): <strong>131</strong></li>
+            </ul>
+
+            <h4>Por favor, confirma:</h4>
+            <label><input type="checkbox" id="check1" onclick="validarAceptacion()"> He leído y comprendido la información.</label>
+            <label><input type="checkbox" id="check2" onclick="validarAceptacion()"> Acepto participar de manera voluntaria.</label>
+            <label><input type="checkbox" id="check3" onclick="validarAceptacion()"> Entiendo que este test no reemplaza una evaluación profesional.</label>
+
+            <!-- Captcha de Cloudflare -->
+            <div id="cf-captcha">
+                <!-- Aquí va el CAPTCHA de Cloudflare -->
+                <input type="text" id="captcha" placeholder="Completa el CAPTCHA" oninput="validarAceptacion()">
+            </div>
+
+            <button id="btnContinuar" onclick="aceptarCondiciones()" disabled>Comenzar el Cuestionario</button>
         </div>
     </div>
 
