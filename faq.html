@@ -4,59 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas Frecuentes - Consulta Válidamente Hablando</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Importamos las tipografías -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #f3f4f6;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
+            padding: 20px;
         }
 
-        /* Frase destacada superior */
-        .top-banner {
-            background-color: #4D4038;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 18px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-        }
-
-        /* Menú de navegación */
-        .navbar {
-            background-color: #F2E3C6;
-            border-bottom: 2px solid #D9C2A3;
-        }
-        .navbar-nav .nav-link {
-            color: #4D4038 !important;
-            font-weight: 500;
-            padding: 10px 15px;
-            font-family: 'Poppins', sans-serif;
-        }
-        .navbar-nav .nav-link:hover {
-            color: #A07D5A !important;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background-color: #F2E3C6;
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .hero-section h1 {
-            font-size: 32px;
-            color: #4D4038;
-            font-weight: 700;
-        }
-
-        /* Sección de contenido */
         .content-section {
             max-width: 800px;
             margin: 40px auto;
@@ -66,212 +21,106 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Estilo del acordeón */
-        .accordion-button {
-            font-weight: bold;
-            background-color: #F2E3C6;
-            color: #4D4038;
-        }
-        .accordion-button:not(.collapsed) {
-            background-color: #E8D9C1;
-        }
-        .accordion-body {
-            font-size: 16px;
-            color: #4D4038;
+        .accordion-item {
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Botón de Evaluación Gratuita */
-        .evaluation-button {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .evaluation-button a {
-            background-color: #4D4038;
-            color: white;
-            padding: 12px 25px;
-            font-size: 18px;
-            border-radius: 8px;
-            text-decoration: none;
+        .accordion-label {
+            display: block;
+            background: #F2E3C6;
+            padding: 15px;
             font-weight: bold;
-        }
-        .evaluation-button a:hover {
-            background-color: #A07D5A;
+            color: #4D4038;
+            cursor: pointer;
         }
 
-        /* Adaptaciones para móviles */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 30px 15px;
-            }
-            .content-section {
-                padding: 20px;
-            }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: white;
+            padding: 0 15px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Frase destacada -->
-    <div class="top-banner">
-        Resuelve tus dudas sobre la terapia y la consulta gratuita.
-    </div>
-
-    <!-- Menú de navegación -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="evaluacion.html">Evaluación</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Sección Principal -->
-    <div class="hero-section">
-        <h1>Preguntas Frecuentes</h1>
-        <p>Encuentra respuestas a las dudas más comunes sobre nuestra terapia.</p>
-    </div>
-
-   <!-- Sección de Preguntas Generales -->
+<!-- Sección de Preguntas Generales -->
 <section class="content-section">
     <h2 class="text-center">Preguntas Generales</h2>
-    <div class="accordion mx-auto" id="faqAccordion" style="max-width: 800px;">
-        
+    <div class="accordion" id="faqGeneral">
+
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                    ¿Qué es la psicoterapia online?
-                </button>
-            </h2>
-            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    La psicoterapia online es una modalidad de atención psicológica que se realiza a través de internet, utilizando herramientas como videollamadas o chats.
-                </div>
+            <div class="accordion-label">¿Qué es la psicoterapia online?</div>
+            <div class="accordion-content">
+                La psicoterapia online es una modalidad de atención psicológica que se realiza a través de internet, utilizando herramientas como videollamadas o chats.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                    ¿Es efectiva la terapia psicológica en línea?
-                </button>
-            </h2>
-            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Sí, diversos estudios han demostrado que la terapia online es tan efectiva como la presencial para tratar problemas como ansiedad, depresión y estrés.
-                </div>
+            <div class="accordion-label">¿Es efectiva la terapia psicológica en línea?</div>
+            <div class="accordion-content">
+                Sí, diversos estudios han demostrado que la terapia online es tan efectiva como la presencial para tratar problemas como ansiedad, depresión y estrés.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                    ¿Qué ventajas ofrece la terapia online frente a la presencial?
-                </button>
-            </h2>
-            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    La terapia online ofrece flexibilidad horaria, elimina la necesidad de desplazamientos, brinda acceso a especialistas sin importar la ubicación geográfica y permite recibir apoyo en un entorno familiar y cómodo.
-                </div>
+            <div class="accordion-label">¿Qué ventajas ofrece la terapia online frente a la presencial?</div>
+            <div class="accordion-content">
+                La terapia online ofrece flexibilidad horaria, elimina la necesidad de desplazamientos y brinda acceso a especialistas sin importar la ubicación geográfica.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                    ¿Cómo garantizan la confidencialidad en las sesiones de terapia online?
-                </button>
-            </h2>
-            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Las sesiones se realizan mediante plataformas seguras que cumplen con estándares de privacidad y protección de datos. Además, los psicólogos están comprometidos con el secreto profesional, asegurando que toda la información compartida se mantenga confidencial.
-                </div>
+            <div class="accordion-label">¿Cómo garantizan la confidencialidad en las sesiones de terapia online?</div>
+            <div class="accordion-content">
+                Las sesiones se realizan mediante plataformas seguras que cumplen con estándares de privacidad y protección de datos.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                    ¿Qué necesito para comenzar una terapia psicológica online?
-                </button>
-            </h2>
-            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Solo necesitas un dispositivo con conexión a internet, como un ordenador, tablet o smartphone, y un espacio privado donde te sientas cómodo para hablar abiertamente durante las sesiones.
-                </div>
+            <div class="accordion-label">¿Qué necesito para comenzar una terapia psicológica online?</div>
+            <div class="accordion-content">
+                Solo necesitas un dispositivo con conexión a internet y un espacio privado donde te sientas cómodo para hablar abiertamente.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                    ¿Cómo se estructura una sesión de psicoterapia en línea?
-                </button>
-            </h2>
-            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Las sesiones suelen durar entre 45 y 60 minutos. Al igual que en la terapia presencial, se abordan las preocupaciones del paciente, se establecen objetivos terapéuticos y se trabajan estrategias para el bienestar emocional.
-                </div>
+            <div class="accordion-label">¿Cómo se estructura una sesión de psicoterapia en línea?</div>
+            <div class="accordion-content">
+                Las sesiones suelen durar entre 45 y 60 minutos. Se abordan las preocupaciones del paciente y se trabajan estrategias para el bienestar emocional.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
-                    ¿Puedo recibir terapia online si estoy en otro país o zona horaria?
-                </button>
-            </h2>
-            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Sí, la terapia online trasciende fronteras. Es importante coordinar con el terapeuta para encontrar horarios que funcionen para ambas partes, teniendo en cuenta las diferencias horarias.
-                </div>
+            <div class="accordion-label">¿Puedo recibir terapia online si estoy en otro país o zona horaria?</div>
+            <div class="accordion-content">
+                Sí, la terapia online trasciende fronteras. Es importante coordinar con el terapeuta para encontrar horarios que funcionen para ambas partes.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
-                    ¿Qué tipos de problemas se pueden tratar mediante psicoterapia online?
-                </button>
-            </h2>
-            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    La terapia online es efectiva para una variedad de problemas, incluyendo ansiedad, depresión, estrés, problemas de relación, trastornos alimentarios y más.
-                </div>
+            <div class="accordion-label">¿Qué tipos de problemas se pueden tratar mediante psicoterapia online?</div>
+            <div class="accordion-content">
+                Se pueden tratar ansiedad, depresión, estrés, problemas de relación, trastornos alimentarios y más.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
-                    ¿Cómo elijo al psicólogo adecuado para mí en una plataforma online?
-                </button>
-            </h2>
-            <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Es recomendable revisar las credenciales del terapeuta, su experiencia en áreas específicas y, si es posible, leer opiniones de otros pacientes. Muchas plataformas ofrecen perfiles detallados de los profesionales para ayudarte en tu elección.
-                </div>
+            <div class="accordion-label">¿Cómo elijo al psicólogo adecuado para mí en una plataforma online?</div>
+            <div class="accordion-content">
+                Es recomendable revisar las credenciales del terapeuta, su experiencia en áreas específicas y leer opiniones de otros pacientes.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
-                    ¿Qué hago si tengo problemas técnicos durante una sesión?
-                </button>
-            </h2>
-            <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Es importante comunicar cualquier problema técnico al terapeuta de inmediato. Juntos pueden buscar soluciones, como reprogramar la sesión o cambiar a otro medio de comunicación temporalmente.
-                </div>
+            <div class="accordion-label">¿Qué hago si tengo problemas técnicos durante una sesión?</div>
+            <div class="accordion-content">
+                Es importante comunicar cualquier problema técnico al terapeuta de inmediato para buscar soluciones.
             </div>
         </div>
 
@@ -281,122 +130,26 @@
 <!-- Sección de Preguntas sobre la Primera Consulta Gratuita -->
 <section class="content-section">
     <h2 class="text-center">Preguntas sobre la Primera Consulta Gratuita</h2>
-    <div class="accordion mx-auto" id="faqAccordion2" style="max-width: 800px;">
-        
+    <div class="accordion" id="faqConsulta">
+
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA1">
-                    ¿Cuál es el propósito de una primera consulta gratuita en terapia?
-                </button>
-            </h2>
-            <div id="faqA1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    La consulta inicial permite al terapeuta conocer la situación del paciente, evaluar si la terapia online es adecuada y ofrecer información sobre el proceso terapéutico.
-                </div>
+            <div class="accordion-label">¿Cuál es el propósito de una primera consulta gratuita en terapia?</div>
+            <div class="accordion-content">
+                La consulta inicial permite evaluar la situación del paciente y determinar si la terapia online es adecuada.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA2">
-                    ¿Qué puedo esperar durante la primera sesión de evaluación?
-                </button>
-            </h2>
-            <div id="faqA2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    El terapeuta hará preguntas sobre tu motivo de consulta, historial y expectativas. También podrás resolver dudas sobre el proceso terapéutico.
-                </div>
+            <div class="accordion-label">¿Qué puedo esperar durante la primera sesión de evaluación?</div>
+            <div class="accordion-content">
+                El terapeuta hará preguntas sobre tu motivo de consulta, historial y expectativas.
             </div>
         </div>
 
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA3">
-                    ¿Estoy obligado a continuar con la terapia después de la consulta gratuita?
-                </button>
-            </h2>
-            <div id="faqA3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    No, la decisión es completamente tuya. La primera consulta sirve para que valores si la terapia y el profesional se ajustan a tus necesidades.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA4">
-                    ¿Cómo puedo prepararme para la primera consulta de terapia online?
-                </button>
-            </h2>
-            <div id="faqA4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    Reflexiona sobre tus objetivos, dudas y expectativas. También es recomendable encontrar un espacio tranquilo y privado para la sesión.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA5">
-                    ¿Qué sucede si decido no continuar después de la primera consulta?
-                </button>
-            </h2>
-            <div id="faqA5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    No hay compromiso de continuar. Si decides no seguir, el terapeuta puede sugerirte otros recursos o profesionales según tu caso.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA6">
-                    ¿La primera consulta gratuita implica algún compromiso financiero?
-                </button>
-            </h2>
-            <div id="faqA6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    No, la consulta es gratuita y no genera ninguna obligación económica ni de continuar con el proceso terapéutico.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA7">
-                    ¿Puedo solicitar una primera consulta gratuita con cualquier terapeuta?
-                </button>
-            </h2>
-            <div id="faqA7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    Depende del terapeuta o la plataforma. Es recomendable revisar su política antes de solicitar una sesión.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA8">
-                    ¿Qué tipo de preguntas me harán en la primera consulta?
-                </button>
-            </h2>
-            <div id="faqA8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    Se abordarán temas como tu motivo de consulta, historial emocional, entorno social y expectativas sobre la terapia.
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqA9">
-                    ¿Cómo agendo una primera consulta gratuita de terapia online?
-                </button>
-            </h2>
-            <div id="faqA9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
-                <div class="accordion-body">
-                    Puedes agendarla a través de la página web, redes sociales o contactando directamente con el terapeuta.
-                </div>
+            <div class="accordion-label">¿Estoy obligado a continuar con la terapia después de la consulta gratuita?</div>
+            <div class="accordion-content">
+                No, la decisión es completamente tuya.
             </div>
         </div>
 
@@ -407,3 +160,24 @@
 <div class="text-center mt-4">
     <a href="evaluacion.html" class="btn btn-dark btn-lg">Agendar Evaluación Gratuita</a>
 </div>
+
+<!-- JavaScript para el Acordeón -->
+<script>
+    document.querySelectorAll(".accordion-label").forEach(label => {
+        label.addEventListener("click", function() {
+            const content = this.nextElementSibling;
+            const isActive = content.style.maxHeight;
+
+            document.querySelectorAll(".accordion-content").forEach(item => {
+                item.style.maxHeight = null;
+            });
+
+            if (!isActive) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
