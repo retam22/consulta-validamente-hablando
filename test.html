@@ -158,14 +158,22 @@
             const fecha = new Date().toLocaleString();
             const scriptURL = "https://script.google.com/macros/s/AKfycby1d6dQXp-9Pr8czLlmkuWV2Rgc0UhPmUMHEDVf5SqCZQvPDlCVjP8HiG2Y8HtIZDoJ/exec";
 
+            const formData = new FormData();
+            formData.append("email", email);
+            formData.append("resultadoFinal", resultadoFinal);
+            formData.append("fecha", fecha);
+
             fetch(scriptURL, {
                 method: "POST",
-                body: JSON.stringify({ email, resultadoFinal, fecha }),
-                headers: { "Content-Type": "application/json" }
+                body: formData
             })
             .then(response => {
-                console.log("Datos enviados correctamente.");
-                window.location.href = "https://calendly.com/validamentehablando/30min?back=1&month=2025-02";
+                if (response.ok) {
+                    console.log("Datos enviados correctamente.");
+                    window.location.href = "https://calendly.com/validamentehablando/30min?back=1&month=2025-02";
+                } else {
+                    console.error("Error en la respuesta del servidor.");
+                }
             })
             .catch(error => console.error("Error al enviar los datos:", error));
         }
