@@ -45,30 +45,9 @@
             color: #4CAF50 !important;
         }
 
-        /* Botón destacado para el GPT */
-        .btn-gpt {
-            background-color: #4CAF50;
-            color: white !important;
-            font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .btn-gpt:hover {
-            background-color: #388E3C;
-        }
-
         /* Ocultar logo completamente */
         .navbar-brand {
             display: none !important;
-        }
-
-        /* Mover el botón de menú hamburguesa a la izquierda */
-        @media (max-width: 992px) {
-            .navbar-toggler {
-                margin-right: auto;  
-                margin-left: 10px;
-            }
         }
 
         /* Hero Section */
@@ -90,82 +69,40 @@
             font-weight: 700;
         }
 
-        /* Botón de Evaluación Gratuita */
-        .evaluation-button {
+        /* Botones principales */
+        .action-buttons {
             text-align: center;
             margin-top: 20px;
         }
 
-        .evaluation-button a {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 25px;
+        .action-buttons a {
+            display: inline-block;
+            padding: 12px 20px;
             font-size: 18px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
+            margin: 10px;
+            min-width: 230px;
+            text-align: center;
         }
 
-        .evaluation-button a:hover {
+        .btn-evaluacion {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-evaluacion:hover {
             background-color: #388E3C;
         }
 
-        /* Sección del Blog */
-        .blog-preview {
-            padding: 50px 20px;
-            text-align: center;
-            background: white;
+        .btn-gpt {
+            background-color: #FF9800;
+            color: white;
         }
 
-        .blog-preview h2 {
-            font-size: 28px;
-            color: #0073e6;
-        }
-
-        .blog-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .blog-card {
-            width: 300px;
-            background: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .blog-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-
-        .blog-card h3 {
-            font-size: 20px;
-            color: #0073e6;
-            margin-top: 10px;
-        }
-
-        .blog-card p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .blog-card a {
-            text-decoration: none;
-            color: #0073e6;
-            font-weight: bold;
-        }
-
-        .blog-card a:hover {
-            color: #4CAF50;
+        .btn-gpt:hover {
+            background-color: #E68900;
         }
 
         /* Adaptaciones para móviles */
@@ -178,9 +115,10 @@
                 width: 140px;
             }
 
-            .blog-container {
-                flex-direction: column;
-                align-items: center;
+            .action-buttons a {
+                display: block;
+                width: 90%;
+                margin: 10px auto;
             }
         }
     </style>
@@ -195,7 +133,6 @@
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-
             <!-- Botón hamburguesa en móvil alineado a la izquierda -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -208,9 +145,6 @@
                     <li class="nav-item"><a class="nav-link" href="asistente.html">Asistente IA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     <li class="nav-item"><a class="nav-link" href="evaluacion.html">TEST</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-gpt" href="https://gpt.tuweb.com" target="_blank">💬 Habla Gratis con mi Asistente</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -222,9 +156,14 @@
         <h1>Psicoterapia online <br> Válidamente Hablando</h1>
     </div>
 
-    <!-- Botón de Evaluación Gratuita -->
-    <div class="evaluation-button">
-        <a href="https://calendly.com/validamentehablando/30min" target="_blank">Primera Evaluación Gratuita</a>
+    <!-- Botones de acción -->
+    <div class="action-buttons">
+        <a href="https://calendly.com/validamentehablando/30min" target="_blank" class="btn-evaluacion">
+            📅 Primera Evaluación Gratuita
+        </a>
+        <a href="https://gpt.tuweb.com" target="_blank" class="btn-gpt">
+            💬 Habla Gratis con mi Asistente
+        </a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
