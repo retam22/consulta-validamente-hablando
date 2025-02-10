@@ -20,7 +20,7 @@
 
         /* Mensaje superior */
         .top-banner {
-            background-color: #4D4038;
+            background-color: #0073e6;
             color: white;
             text-align: center;
             padding: 14px;
@@ -31,18 +31,31 @@
 
         /* Menú de navegación */
         .navbar {
-            background-color: #F2E3C6;
-            border-bottom: 2px solid #D9C2A3;
+            background-color: #0073e6;
+            border-bottom: 2px solid #005bb5;
             padding: 10px 0;
         }
         .navbar-nav .nav-link {
-            color: #4D4038 !important;
+            color: white !important;
             font-weight: 500;
             padding: 10px 15px;
             font-family: 'Poppins', sans-serif;
         }
         .navbar-nav .nav-link:hover {
-            color: #A07D5A !important;
+            color: #4CAF50 !important;
+        }
+
+        /* Botón destacado para el GPT */
+        .btn-gpt {
+            background-color: #4CAF50;
+            color: white !important;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn-gpt:hover {
+            background-color: #388E3C;
         }
 
         /* Ocultar logo completamente */
@@ -53,16 +66,17 @@
         /* Mover el botón de menú hamburguesa a la izquierda */
         @media (max-width: 992px) {
             .navbar-toggler {
-                margin-right: auto;  /* Empuja el icono hacia la izquierda */
-                margin-left: 10px;  /* Espacio para que no quede pegado */
+                margin-right: auto;  
+                margin-left: 10px;
             }
         }
 
         /* Hero Section */
         .hero-section {
-            background-color: #F2E3C6;
+            background-color: #0073e6;
             text-align: center;
             padding: 50px 20px;
+            color: white;
         }
 
         /* Imagen del logo */
@@ -73,7 +87,6 @@
 
         .hero-section h1 {
             font-size: 36px;
-            color: #4D4038;
             font-weight: 700;
         }
 
@@ -84,7 +97,7 @@
         }
 
         .evaluation-button a {
-            background-color: #4D4038;
+            background-color: #4CAF50;
             color: white;
             padding: 12px 25px;
             font-size: 18px;
@@ -94,7 +107,7 @@
         }
 
         .evaluation-button a:hover {
-            background-color: #A07D5A;
+            background-color: #388E3C;
         }
 
         /* Sección del Blog */
@@ -106,7 +119,7 @@
 
         .blog-preview h2 {
             font-size: 28px;
-            color: #4D4038;
+            color: #0073e6;
         }
 
         .blog-container {
@@ -136,7 +149,7 @@
 
         .blog-card h3 {
             font-size: 20px;
-            color: #4D4038;
+            color: #0073e6;
             margin-top: 10px;
         }
 
@@ -147,29 +160,12 @@
 
         .blog-card a {
             text-decoration: none;
-            color: #4D4038;
+            color: #0073e6;
             font-weight: bold;
         }
 
         .blog-card a:hover {
-            color: #A07D5A;
-        }
-
-        .blog-button {
-            margin-top: 20px;
-        }
-
-        .blog-button a {
-            background-color: #4D4038;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .blog-button a:hover {
-            background: #A07D5A;
+            color: #4CAF50;
         }
 
         /* Adaptaciones para móviles */
@@ -209,8 +205,12 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="asistente.html">Asistente IA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     <li class="nav-item"><a class="nav-link" href="evaluacion.html">TEST</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-gpt" href="https://gpt.tuweb.com" target="_blank">💬 Habla Gratis con mi Asistente</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -226,22 +226,6 @@
     <div class="evaluation-button">
         <a href="https://calendly.com/validamentehablando/30min" target="_blank">Primera Evaluación Gratuita</a>
     </div>
-
-    <!-- Resumen del Blog -->
-    <section class="blog-preview">
-        <h2>Resumen del blog </h2>
-        <div class="blog-container">
-            <div class="blog-card">
-                <img src="https://source.unsplash.com/600x400/?therapy,mental-health" alt="Blog">
-                <h3>Validación: ¿Nos Está Ayudando o Nos Mantiene en el Mismo Lugar?</h3>
-                <p>La validación emocional puede ayudarnos, pero también mantenernos atrapados...</p>
-                <a href="articulo1.html">Leer más</a>
-            </div>
-        </div>
-        <div class="blog-button">
-            <a href="blog.html">Ver todos los artículos</a>
-        </div>
-    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
