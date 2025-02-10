@@ -73,6 +73,10 @@
         .action-buttons {
             text-align: center;
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .action-buttons a {
@@ -82,7 +86,6 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            margin: 10px;
             min-width: 230px;
             text-align: center;
         }
@@ -96,13 +99,22 @@
             background-color: #388E3C;
         }
 
-        .btn-gpt {
+        .btn-gpt-usuarios {
             background-color: #FF9800;
             color: white;
         }
 
-        .btn-gpt:hover {
+        .btn-gpt-usuarios:hover {
             background-color: #E68900;
+        }
+
+        .btn-gpt-profesionales {
+            background-color: #0073e6;
+            color: white;
+        }
+
+        .btn-gpt-profesionales:hover {
+            background-color: #005bb5;
         }
 
         /* Adaptaciones para móviles */
@@ -115,8 +127,12 @@
                 width: 140px;
             }
 
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .action-buttons a {
-                display: block;
                 width: 90%;
                 margin: 10px auto;
             }
@@ -161,8 +177,11 @@
         <a href="https://calendly.com/validamentehablando/30min" target="_blank" class="btn-evaluacion">
             📅 Primera Evaluación Gratuita
         </a>
-        <a href="https://gpt.tuweb.com" target="_blank" class="btn-gpt">
-            💬 Habla Gratis con mi Asistente
+        <a href="https://gpt.tuweb.com/usuarios" target="_blank" class="btn-gpt-usuarios">
+            💬 Asistente para Usuarios
+        </a>
+        <a href="https://gpt.tuweb.com/profesionales" target="_blank" class="btn-gpt-profesionales">
+            🎓 Asistente para Profesionales
         </a>
     </div>
 
